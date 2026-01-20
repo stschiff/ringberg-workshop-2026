@@ -1,5 +1,5 @@
 ---
-title: "Heterozygosity and population size estimation"
+title: "Heterozygosity and population size estimation in humans"
 bibliography: references.bib
 ---
 
@@ -9,7 +9,7 @@ We here load the table into an R dataframe and simplify column names a bit:
 
 ```{r}
 dat1 <- read.csv2("data/Mallick_2016_Table_S1.csv")
-dat2 <- dat1[, c("Sample.ID..SGDP.",
+dat2 <- dat1[dat1$Region != "" & !is.na(dat1$Region), c("Sample.ID..SGDP.",
                  "Genetic.sex.assignment",
                  "Region",
                  "Country",
@@ -31,21 +31,70 @@ Let's view the first few rows of this table:
 head(dat2)
 ```
 
-Let's check out the distribution of heterozygosities:
-
+The distribution spans from around $5\times 10^{-4}$ to around $10^{-3}$:
 
 ```{r}
-hist(dat2$heterozygosity, main="Heterozygosity in Humans", xlab="autosomal heterozygosity")
+hist(dat2$heterozygosity, n = 20, main="Heterozygosity in Humans", xlab="autosomal heterozygosity")
 ```
 
-Suggestions for analyses:
+## Exercises
 
 1. Using a per-generation mutation rate of $\mu=1.25\times 10^{-8}$ in humans, compute effective population sizes using $$N_e = \frac{\theta}{4\mu}$$ where $\theta$ is the heterozygosity, for example by adding a column to the dataframe.
 
-2. Show this distribution as a histogram
+2. Show this distribution as a histogram.
 
 3. Compute mean effective population size per continent ("region" in the dataframe). Try Box-Plots per continent , or scatter plots (individuals along x, Ne on y, sorted by region and Ne) to visualise the variation.
 
-4. Effective population sizes based on heterozygisoty are averaged over a long period of time. The distribution of coalescence times is exponential with mean $2N_e$ generations. Plot that distribution and mark the quantiles, for a typical human $N_e$.
+4. Effective population sizes based on heterozygosity are averaged over a long period of time. The distribution of coalescence times is exponential with mean $2N_e$ generations. Plot that distribution and mark the quantiles, for a typical human $N_e$.
 
-5. Let visualise effective population size as a function of the distance from Africa, for example from Addis Abeba in East Africa (Longitude ~9, Latitude ~ 39). You can compute the distance using the Haversine formula: Given a pair of points $(\)
+5. Let visualise effective population size as a function of the distance from Africa, for example from Addis Abeba in East Africa (Longitude ~9, Latitude ~ 39). You can compute the distance using the Haversine formula: Given a pair of points.
+
+## Solutions
+
+::: {.callout-caution collapse="true"}
+## 1. Solution to Add Ne-Column
+
+```{r}
+mu <- 1.25e-8
+dat2$Ne <- dat2$heterozygosity / (4 * mu)
+```
+:::
+
+2. Show Ne-Histogram
+
+```{r}
+hist(dat2$Ne, n = 20, main="Effective Population size", xlab="Ne")
+```
+
+3. Compute per-region averages
+
+```{r}
+aggregate(Ne ~ region, data = dat2, FUN = mean)
+```
+
+which now explains the by-modality, given by the difference between African and Non-African values.
+
+We can quickly generate a boxplot:
+
+```{r}
+old_par <- par(mar = c(8, 4, 4, 2))
+ret <- boxplot(Ne ~ region, data = dat2, xaxt = "n", xlab = "", main = "Heterozygosity by region")
+axis(1, 1:length(ret$names), ret$names, las = 2)
+mtext("Region", side=1, line = 6)
+par(old_par)
+```
+
+and a scatter plot with colors indicating region:
+```{r}
+o <- order(dat2$region, -dat2$Ne)
+colf <- as.factor(dat2[o, "region"])
+plot(dat2[o,"heterozygosity"],
+     pch = 20, col = colf,
+     ylab = "heterozygosity", xaxt = "n", xlab = "",
+     main = "Heterozygosity by region")
+mtext("Individuals", side = 1, line = 1)
+legend("topright", legend = levels(colf),
+       col = 1:length(levels(colf)),
+       pch = 20, ncol = 2, cex = 0.8,
+       title = "Region")
+```
