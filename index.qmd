@@ -1,7 +1,6 @@
 ---
-title: "ringberg-workshop-2026"
+title: "Ringberg Popgen Workshop 2026"
 ---
 
-This is a Quarto website.
+This Website summarises practical sessions within the Human Popgen Workshop at the 2026 Ringberg Retreat of the Department of Archaeogenetics.
 
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.

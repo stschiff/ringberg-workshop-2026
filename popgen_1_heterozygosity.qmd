@@ -1,0 +1,51 @@
+---
+title: "Heterozygosity and population size estimation"
+bibliography: references.bib
+---
+
+In this practical, we're gonna take a look at human heterozygosity data. The data comes from [@Mallick2016-xf], Supplementary Table 1, which you can download as CSV [here](data/Mallick_2016_Table_S1.csv).
+
+We here load the table into an R dataframe and simplify column names a bit:
+
+```{r}
+dat1 <- read.csv2("data/Mallick_2016_Table_S1.csv")
+dat2 <- dat1[, c("Sample.ID..SGDP.",
+                 "Genetic.sex.assignment",
+                 "Region",
+                 "Country",
+                 "Latitude",
+                 "Longitude",
+                 "GATK.heterozygosity.rate.filter.level.filter.level...9")]
+names(dat2) <- c("sample_id",
+                 "sex",
+                 "region",
+                 "country",
+                 "latitude",
+                 "longitude",
+                 "heterozygosity")
+```
+
+Let's view the first few rows of this table:
+
+```{r}
+head(dat2)
+```
+
+Let's check out the distribution of heterozygosities:
+
+
+```{r}
+hist(dat2$heterozygosity, main="Heterozygosity in Humans", xlab="autosomal heterozygosity")
+```
+
+Suggestions for analyses:
+
+1. Using a per-generation mutation rate of $\mu=1.25\times 10^{-8}$ in humans, compute effective population sizes using $$N_e = \frac{\theta}{4\mu}$$ where $\theta$ is the heterozygosity, for example by adding a column to the dataframe.
+
+2. Show this distribution as a histogram
+
+3. Compute mean effective population size per continent ("region" in the dataframe). Try Box-Plots per continent , or scatter plots (individuals along x, Ne on y, sorted by region and Ne) to visualise the variation.
+
+4. Effective population sizes based on heterozygisoty are averaged over a long period of time. The distribution of coalescence times is exponential with mean $2N_e$ generations. Plot that distribution and mark the quantiles, for a typical human $N_e$.
+
+5. Let visualise effective population size as a function of the distance from Africa, for example from Addis Abeba in East Africa (Longitude ~9, Latitude ~ 39). You can compute the distance using the Haversine formula: Given a pair of points $(\)
