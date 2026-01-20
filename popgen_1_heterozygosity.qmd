@@ -3,73 +3,63 @@ title: "Heterozygosity and population size estimation in humans"
 bibliography: references.bib
 ---
 
-In this practical, we're gonna take a look at human heterozygosity data. The data comes from [@Mallick2016-xf], Supplementary Table 1, which you can download as CSV [here](data/Mallick_2016_Table_S1.csv).
+In this practical, we will take a look at human heterozygosity data. The data comes from [@Mallick2016-xf], Supplementary Table 1, which you can download as CSV [here](data/Mallick_2016_Table_S1.csv).
 
 We here load the table into an R dataframe and simplify column names a bit:
 
 ```{r}
-dat1 <- read.csv2("data/Mallick_2016_Table_S1.csv")
-dat2 <- dat1[dat1$Region != "" & !is.na(dat1$Region), c("Sample.ID..SGDP.",
-                 "Genetic.sex.assignment",
-                 "Region",
-                 "Country",
-                 "Latitude",
-                 "Longitude",
-                 "GATK.heterozygosity.rate.filter.level.filter.level...9")]
-names(dat2) <- c("sample_id",
-                 "sex",
-                 "region",
-                 "country",
-                 "latitude",
-                 "longitude",
-                 "heterozygosity")
+dat <- read.csv2("data/Mallick_2016_Table_S1.csv",
+                 na.strings = c("?", "..")) |>
+     transform(region = Region,
+               population = Population.ID,
+               latitude = Latitude,
+               longitude = Longitude,
+               heterozygosity = GATK.heterozygosity.rate.filter.level.filter.level...9
+               ) |>
+     subset(region != "" & !is.na(region),
+            select = c(region, population, latitude, longitude, heterozygosity))
 ```
 
 Let's view the first few rows of this table:
 
 ```{r}
-head(dat2)
+head(dat)
 ```
 
 The distribution spans from around $5\times 10^{-4}$ to around $10^{-3}$:
 
 ```{r}
-hist(dat2$heterozygosity, n = 20, main="Heterozygosity in Humans", xlab="autosomal heterozygosity")
+hist(dat$heterozygosity, n = 20, main="Heterozygosity in Humans", xlab="autosomal heterozygosity")
 ```
 
 ## Exercises
 
 1. Using a per-generation mutation rate of $\mu=1.25\times 10^{-8}$ in humans, compute effective population sizes using $$N_e = \frac{\theta}{4\mu}$$ where $\theta$ is the heterozygosity, for example by adding a column to the dataframe.
 
-2. Show this distribution as a histogram.
-
-3. Compute mean effective population size per continent ("region" in the dataframe). Try Box-Plots per continent , or scatter plots (individuals along x, Ne on y, sorted by region and Ne) to visualise the variation.
-
-4. Effective population sizes based on heterozygosity are averaged over a long period of time. The distribution of coalescence times is exponential with mean $2N_e$ generations. Plot that distribution and mark the quantiles, for a typical human $N_e$.
-
-5. Let visualise effective population size as a function of the distance from Africa, for example from Addis Abeba in East Africa (Longitude ~9, Latitude ~ 39). You can compute the distance using the Haversine formula: Given a pair of points.
-
-## Solutions
-
-::: {.callout-caution collapse="true"}
-## 1. Solution to Add Ne-Column
-
+::: {.callout-tip collapse="true"}
+## Solution
 ```{r}
 mu <- 1.25e-8
-dat2$Ne <- dat2$heterozygosity / (4 * mu)
+dat$Ne <- dat$heterozygosity / (4 * mu)
 ```
 :::
 
-2. Show Ne-Histogram
+2. Show this distribution as a histogram.
 
+::: {.callout-tip collapse="true"}
+## Solution
 ```{r}
-hist(dat2$Ne, n = 20, main="Effective Population size", xlab="Ne")
+hist(dat$Ne, n = 20, main="Effective Population size", xlab="Ne")
 ```
+:::
 
-3. Compute per-region averages
+3. Compute mean effective population size per continent ("region" in the dataframe). Try Box-Plots per continent , or scatter plots (individuals along x, Ne on y, sorted by region and Ne) to visualise the variation.
+
+::: {.callout-tip collapse="true"}
+## Solution
 
 ```{r}
-aggregate(Ne ~ region, data = dat2, FUN = mean)
+aggregate(Ne ~ region, data = dat, FUN = mean)
 ```
 
 which now explains the by-modality, given by the difference between African and Non-African values.
@@ -78,7 +68,7 @@ We can quickly generate a boxplot:
 
 ```{r}
 old_par <- par(mar = c(8, 4, 4, 2))
-ret <- boxplot(Ne ~ region, data = dat2, xaxt = "n", xlab = "", main = "Heterozygosity by region")
+ret <- boxplot(Ne ~ region, data = dat, xaxt = "n", xlab = "", main = "Heterozygosity by region")
 axis(1, 1:length(ret$names), ret$names, las = 2)
 mtext("Region", side=1, line = 6)
 par(old_par)
@@ -86,9 +76,9 @@ par(old_par)
 
 and a scatter plot with colors indicating region:
 ```{r}
-o <- order(dat2$region, -dat2$Ne)
-colf <- as.factor(dat2[o, "region"])
-plot(dat2[o,"heterozygosity"],
+o <- order(dat$region, -dat$Ne)
+colf <- as.factor(dat[o, "region"])
+plot(dat[o,"heterozygosity"],
      pch = 20, col = colf,
      ylab = "heterozygosity", xaxt = "n", xlab = "",
      main = "Heterozygosity by region")
@@ -98,3 +88,98 @@ legend("topright", legend = levels(colf),
        pch = 20, ncol = 2, cex = 0.8,
        title = "Region")
 ```
+:::
+
+4. Effective population sizes based on heterozygosity are averaged over a long period of time. The distribution of coalescence times is exponential with mean $2N_e$ in generations, which you can convert to years using an average human generation time of 27 [@Wang2023-ks]. Plot that distribution and mark the quantiles, for a typical human $N_e$.
+
+::: {.callout-tip collapse="true"}
+## Solution
+
+```{r}
+ne <- 15000 # just some typical rate 
+avg_coal_time_generations <- 2 * ne
+# we convert this to million years 
+avg_coal_time_myears <- avg_coal_time_generations * 27 / 1e6
+exp_rate <- 1 / avg_coal_time_myears
+quantile_boundaries <- qexp(c(0.05, 0.95), rate = exp_rate)
+curve(dexp(x, rate = exp_rate), from = 0, to = 3,
+      xlab = "million years ago",
+      ylab = "Probability")
+x_vals <- seq(quantile_boundaries[1], quantile_boundaries[2], length.out = 100)
+polygon(c(quantile_boundaries[1], x_vals, quantile_boundaries[2]),
+        c(0, dexp(x_vals, rate = exp_rate), 0),
+        col = rgb(0, 0, 1, 0.3), border = NA)
+text(1.8, 0.5, labels = sprintf("%.2f - %.2f Mya\n(90%% probability interval", quantile_boundaries[1], quantile_boundaries[2]), cex = 0.8)
+```
+
+:::
+
+5. Let visualise effective population size in space, for example using the `maps` package.
+
+::: {.callout-tip collapse="true"}
+## Solution
+
+```{r}
+library(maps)
+map(database = "world")
+
+# Create a color palette based on heterozygosity values
+col_palette <- colorRampPalette(c("blue", "red"))(100)
+ne_colors <- col_palette[cut(dat$Ne, breaks = 100, labels = FALSE)]
+
+points(x = dat$longitude, y = dat$latitude, pch = 20, col = ne_colors)
+
+# Add a legend
+legend("bottomleft", 
+       legend = c(sprintf("%.0f", min(dat$Ne, na.rm = TRUE)),
+                  sprintf("%.0f", max(dat$Ne, na.rm = TRUE))),
+       col = c(col_palette[1], col_palette[100]),
+       pch = 20,
+       title = "Eff. Population Size")
+```
+
+:::
+
+6.  Plot heterozygosity as a function of the distance from Africa, for example from Addis Abeba in East Africa (Latitude ~ 39, Longitude ~9). You can compute the distance using the Haversine formula:
+
+$$d=2r \arcsin \left(\sqrt{\sin^2\left(\frac{\phi_2 - \phi_1}{2}\right) + \cos(\phi_1)\cos(\phi_2)\sin^2\left(\frac{\lambda_2 - \lambda_1}{2}\right)}\right)$$
+
+where $\phi_i$ denote the latitudes and $\lambda_i$ the longitudes of the two points, and $r=6371$ is the radius of the earth. Note, however, that R's trigonometric functions operate on units of radians, not degrees. 
+
+::: {.callout-tip collapse="true"}
+## Solution
+
+We define a function for the haversine-distance on the earth's surface
+
+```{r}
+surface_dist <- function(phi1, lambda1, phi2, lambda2) {
+     r <- 6371;
+     # conversion to radians
+     phi1r <- phi1 / 180 * pi;
+     phi2r <- phi2 / 180 * pi;
+     lambda1r <- lambda1 / 180 * pi;
+     lambda2r <- lambda2 / 180 * pi;
+     term1 <- sin((phi2r - phi1r) / 2) ^ 2;
+     term2 <- cos(phi1r) * cos(phi2r);
+     term3 <- sin((lambda2r - lambda1r) / 2) ^ 2;
+     return (2 * r * asin(sqrt(term1 + term2 * term3)));
+}
+```
+
+and then compute the distance to addis ababa:
+
+```{r}
+dat2 <- dat |> transform(
+     dist = surface_dist(9, 39, latitude, longitude)
+)
+colf <- as.factor(dat$region)
+plot(x = dat2$dist, y = dat2$Ne, pch = 20, col = colf,
+     xlab = "Distance from Addis Ababa [km]",
+     ylab = "Eff. Population Size")
+legend("topright", legend = levels(colf),
+       col = 1:length(levels(colf)),
+       pch = 20, ncol = 2, cex = 0.8,
+       title = "Region")
+```
+
+:::
