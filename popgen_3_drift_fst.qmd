@@ -1,0 +1,170 @@
+---
+title: "Genetic Drift and Population Structure"
+bibliography: references.bib
+---
+
+Genetic drift is the process by which allele frequencies change randomly due to random fluctuations. Various models exist to model such fluctuations, but the most widely used one is the Wright-Fisher model. In that model, a parent generation of N individuals produces exactly N individuals as offspring, which make up the next generation. To model the fluctuations, every "child" gets assigned a random "parent" from the previous generation.
+
+Here is a simple function in R to model the allele frequency in a number of $g$ successive generations, given a (haploid) population size $n$ and a starting frequency $x0$:
+
+```{r}
+wfsim <- function(n, g, x0) {
+  res <- numeric(g + 1)
+  res[1] <- x0
+  for (i in 2:(g + 1)) {
+    res[i] <- (rbinom(1, n, res[i - 1])) / n
+  }
+  return(res)
+}
+```
+
+We can test it:
+
+```{r}
+set.seed(1)
+wfsim(100, 10, 0.5)
+```
+
+So indeed the allele frequency changes randomly. We can visualise it for more generations:
+
+```{r}
+time_series <- wfsim(100, 100, 0.5)
+plot(time_series, type = "l", ylim = c(0, 1),
+     xlab = "generation", ylab = "allele frequency")
+```
+
+We can better understand this random process, by simulating it many times and plotting the results together:
+
+```{r}
+gens <- 100
+sims100 <- replicate(50, wfsim(100, gens, 0.5))
+matplot(sims100, type = "l", lty = 1, col = "black",
+        ylim = c(0, 1),
+        xlab = "generation", ylab = "allele frequency")
+```
+
+This shows how the variance increases with time, and eventually more and more of these curves get absorbed at either $x=0$ or $x=1$, a process called "fixation".
+
+## Exercise 1
+
+Explore how random drift changes with population size. Repeat the above simulation for $N_e=100, 1000 \text{and} 10000$ and plot all of them.
+
+::: {.callout-tip collapse="true"}
+### Solution
+
+```{r}
+#| fig-width: 12
+#| fig-height: 4
+gens <- 1000
+sims100 <- replicate(50, wfsim(100, gens, 0.5))
+par(mfrow = c(1, 3))
+matplot(sims100, type = "l", lty = 1, col = "black",
+        xlim = c(0, 100), ylim = c(0, 1),
+        xlab = "generation", ylab = "allele frequency", main = "N = 100")
+
+sims1000 <- replicate(50, wfsim(1000, gens, 0.5))
+matplot(sims1000, type = "l", lty = 1, col = "black",
+        xlim = c(0, 100), ylim = c(0, 1),
+        xlab = "generation", ylab = "allele frequency", main = "N = 1000")
+
+sims10000 <- replicate(50, wfsim(10000, gens, 0.5))
+matplot(sims10000, type = "l", lty = 1, col = "black",
+        xlim = c(0, 100), ylim = c(0, 1),
+        xlab = "generation", ylab = "allele frequency", main = "N = 10000")
+```
+
+This shows that larger populations have weaker fluctuations than small populations.
+
+::: 
+
+## From drift to FST
+
+We can visualise this increasing spread of curves by plotting the variance over time:
+```{r}
+plot(apply(sims100,   1, var), type = "l", ylim = c(0, 0.25),
+     xlab = "generations", ylab = "Variance", main = "N = 100")
+```
+
+which shows that it eventually reaches a plateau, at the time point when all trajectories become fixed at either 1 or 0.
+
+$F_\text{ST}$ is defined as the amount of drift, relative to this plateau, so depending on the (starting) allele frequency $x$. Of course, in reality, we do not measure two time points, but typically we compare two diverged populations and measure the total amount of drift that has occurred between them since divergence (see [@Bhatia2013]).
+
+The so-called Hudson estimator is defined as
+
+$$F_\text{ST}(A,B)=\frac{(a-b)^2}{a(1-b)+b(1-a)}$$
+
+where $a$ and $b$ are allele freuqencies in two populations, averaged across the genome ([@Bhatia2013]), although the actual implementation is more complex, as it also deals with sample-size bias-corrections.
+
+We can compute this for real data, for example using [xerxes](https://www.poseidon-adna.org/#/xerxes?id=xerxes-cli-software), see also [our online book](https://mpi-eva-archaeogenetics.github.io/comp_human_adna_book/fst.html).
+
+You can find an actual table of computed FSt [here](data/fstat_world_output.tsv).
+
+```{r}
+dat <- read.table("data/fstat_world_output.tsv",
+                  sep="\t", header = TRUE) |>
+       subset(Statistic == "FST",
+              select=c(a, b, Estimate_Total, StdErr_Jackknife))
+head(dat)
+```
+
+## Exercise 2
+
+Which pairs of population exhibit the largest FSt, and which the lowest? Plot a histogram, too. 
+
+::: {.callout-tip collapse="true"}
+### Solution
+
+```{r}
+head(dat[order(-dat$Estimate_Total),])
+```
+
+The largest FST values of around 0.3 are observed between Karitiana, from South America, and Biaka from Papua Neu Guinea (but note that these values are dependent on the ascertainment of SNPs, which here causes inflation)
+
+Here is a histogram of the values
+
+```{r}
+hist(dat$Estimate_Total, xlab = "FST", ylab = "Nr of pairs",
+     main = "")
+```
+
+So most values are in the range of a few percent and 20 percent, with a mean of
+
+```{r}
+mean(dat$Estimate_Total)
+```
+
+:::
+
+## Exercise 2
+
+Visualise the pairwise matrix of FST. For this you should first convert the flattened list of pairs into a matrix, for example using the `xtabs` function in R, and then you can use `heatmap`.
+
+::: {.callout-tip collapse="true"}
+### Solution
+
+```{r}
+fstMat <- xtabs(Estimate_Total ~ a + b, dat)
+```
+
+Here is a simple heatmap:
+
+```{r}
+#| fig-height: 7
+#| fig-width: 7
+heatmap(fstMat, symm = TRUE, hclustfun = function(m) hclust(m, method="ward.D2"))
+```
+
+OK, let's look at the dendrogram a bit closer:
+
+```{r}
+#| fig-height: 7
+#| fig-width: 7
+fstDist <- as.dist(fstMat)
+dendro <- hclust(fstDist, method="ward.D2")
+plot(dendro, hang = -1, ylab = "FST", xlab = "", main = "")
+```
+which again shows the strong drift that Native American populations (Karitiana) and Mayans experienced in their ancestral past. 
+
+This nicely shows how FST is affected by total drift, which is inversely proportional to population size, and proportional to total divergence time. A long branch can be caused by either low population size (as in the ancestral population of indigenous Americans) or long divergence time (as between populations from Africa and those outside of Africa).
+
+:::

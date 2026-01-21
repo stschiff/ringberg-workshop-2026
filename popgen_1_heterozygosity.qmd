@@ -32,9 +32,9 @@ The distribution spans from around $5\times 10^{-4}$ to around $10^{-3}$:
 hist(dat$heterozygosity, n = 20, main="Heterozygosity in Humans", xlab="autosomal heterozygosity")
 ```
 
-## Exercises
+## Exercise 1
 
-1. Using a per-generation mutation rate of $\mu=1.25\times 10^{-8}$ in humans, compute effective population sizes using $$N_e = \frac{\theta}{4\mu}$$ where $\theta$ is the heterozygosity, for example by adding a column to the dataframe.
+Using a per-generation mutation rate of $\mu=1.25\times 10^{-8}$ in humans, compute effective population sizes using $$N_e = \frac{\theta}{4\mu}$$ where $\theta$ is the heterozygosity, for example by adding a column to the dataframe.
 
 ::: {.callout-tip collapse="true"}
 ## Solution
@@ -44,7 +44,9 @@ dat$Ne <- dat$heterozygosity / (4 * mu)
 ```
 :::
 
-2. Show this distribution as a histogram.
+## Exercise 2
+
+Show this distribution as a histogram.
 
 ::: {.callout-tip collapse="true"}
 ## Solution
@@ -53,7 +55,9 @@ hist(dat$Ne, n = 20, main="Effective Population size", xlab="Ne")
 ```
 :::
 
-3. Compute mean effective population size per continent ("region" in the dataframe). Try Box-Plots per continent , or scatter plots (individuals along x, Ne on y, sorted by region and Ne) to visualise the variation.
+## Exercise 3
+
+Compute mean effective population size per continent ("region" in the dataframe). Try Box-Plots per continent , or scatter plots (individuals along x, Ne on y, sorted by region and Ne) to visualise the variation.
 
 ::: {.callout-tip collapse="true"}
 ## Solution
@@ -90,7 +94,9 @@ legend("topright", legend = levels(colf),
 ```
 :::
 
-4. Effective population sizes based on heterozygosity are averaged over a long period of time. The distribution of coalescence times is exponential with mean $2N_e$ in generations, which you can convert to years using an average human generation time of 27 [@Wang2023-ks]. Plot that distribution and mark the quantiles, for a typical human $N_e$.
+## Exercise 4
+
+Effective population sizes based on heterozygosity are averaged over a long period of time. The distribution of coalescence times is exponential with mean $2N_e$ in generations, which you can convert to years using an average human generation time of 27 [@Wang2023-ks]. Plot that distribution and mark the quantiles, for a typical human $N_e$.
 
 ::: {.callout-tip collapse="true"}
 ## Solution
@@ -118,7 +124,9 @@ Note that this calculation makes the unrealistic assumption of a constant popula
 :::
 
 
-5. Let's visualise effective population size in space, for example using the `maps` package.
+## Exercise 5
+
+Let's visualise effective population size in space, for example using the `maps` package.
 
 ::: {.callout-tip collapse="true"}
 ## Solution
@@ -150,7 +158,9 @@ which clearly shows again a spatial pattern with Africa having the highest effec
 
 :::
 
-6. (Bonus) Plot heterozygosity as a function of the distance from Africa, for example from Addis Abeba in East Africa (Latitude ~ 39, Longitude ~9). You can compute the distance using the Haversine formula:
+## Exercise 6 (Bonus)
+
+Plot heterozygosity as a function of the distance from Africa, for example from Addis Abeba in East Africa (Latitude ~ 39, Longitude ~9). You can compute the distance using the Haversine formula:
 
 $$d=2r \arcsin \left(\sqrt{\sin^2\left(\frac{\phi_2 - \phi_1}{2}\right) + \cos(\phi_1)\cos(\phi_2)\sin^2\left(\frac{\lambda_2 - \lambda_1}{2}\right)}\right)$$
 
