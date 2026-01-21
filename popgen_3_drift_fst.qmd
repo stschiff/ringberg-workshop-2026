@@ -109,7 +109,7 @@ head(dat)
 
 ## Exercise 2
 
-Which pairs of population exhibit the largest FSt, and which the lowest? Plot a histogram, too. 
+Which pairs of population exhibit the largest FSt?
 
 ::: {.callout-tip collapse="true"}
 ### Solution
@@ -135,9 +135,9 @@ mean(dat$Estimate_Total)
 
 :::
 
-## Exercise 2
+## Exercise 3
 
-Visualise the pairwise matrix of FST. For this you should first convert the flattened list of pairs into a matrix, for example using the `xtabs` function in R, and then you can use `heatmap`.
+Turn the flat table of FSt pairs into a matrix. You can use the `xtabs` function in R
 
 ::: {.callout-tip collapse="true"}
 ### Solution
@@ -145,6 +145,15 @@ Visualise the pairwise matrix of FST. For this you should first convert the flat
 ```{r}
 fstMat <- xtabs(Estimate_Total ~ a + b, dat)
 ```
+
+:::
+
+## Exercise 4
+
+Plot a heatmap of the matrix, using the `heatmap` function. 
+
+::: {.callout-tip collapse="true"}
+### Solution
 
 Here is a simple heatmap:
 
@@ -154,7 +163,16 @@ Here is a simple heatmap:
 heatmap(fstMat, symm = TRUE, hclustfun = function(m) hclust(m, method="ward.D2"))
 ```
 
-OK, let's look at the dendrogram a bit closer:
+:::
+
+
+## Exercise 5
+
+Plot the dendrogram, using the `hclust` function
+
+::: {.callout-tip collapse="true"}
+### Solution
+
 
 ```{r}
 #| fig-height: 7

@@ -1,0 +1,8 @@
+---
+title: "Exploring IBD clustering"
+bibliography: references.bib
+---
+
+This practical cannot be shown here on the website, because it uses unpublished data. 
+
+You can find all files needed for this practical [here](https://share.eva.mpg.de/index.php/s/XDBBe9Md6MoMXqy), but the content is password-protected and you will receive the password at the Workshop.

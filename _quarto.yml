@@ -8,8 +8,18 @@ website:
       - href: index.qmd
         text: Home
       - about.qmd
-      - popgen_1_heterozygosity.qmd
-      - popgen_2_roh.qmd
+  sidebar:
+    style: "docked"
+    search: true
+    contents:
+      - text: "Popgen 1: Heterozygosity"
+        href: popgen_1_heterozygosity.qmd
+      - text: "Popgen 2: ROH"
+        href: popgen_2_roh.qmd
+      - text: "Popgen 3: FST"
+        href: popgen_3_drift_fst.qmd
+      - text: "Popgen 4: IBD"
+        href: popgen_4_ibd.qmd
 
 format:
   html:
