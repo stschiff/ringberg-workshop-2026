@@ -9,11 +9,9 @@ website:
         text: Home
       - about.qmd
       - popgen_1_heterozygosity.qmd
+      - popgen_2_roh.qmd
 
 format:
   html:
     theme: cosmo
     toc: true
-
-
-

@@ -5,7 +5,7 @@ bibliography: references.bib
 
 In this practical, we will take a look at human heterozygosity data. The data comes from [@Mallick2016-xf], Supplementary Table 1, which you can download as CSV [here](data/Mallick_2016_Table_S1.csv).
 
-We here load the table into an R dataframe and simplify column names a bit:
+We here load the table into an R dataframe and select and simplify column names a bit:
 
 ```{r}
 dat <- read.csv2("data/Mallick_2016_Table_S1.csv",
@@ -62,7 +62,7 @@ hist(dat$Ne, n = 20, main="Effective Population size", xlab="Ne")
 aggregate(Ne ~ region, data = dat, FUN = mean)
 ```
 
-which now explains the by-modality, given by the difference between African and Non-African values.
+which now explains the by-modality of the distributions above, given by the difference between African and Non-African values.
 
 We can quickly generate a boxplot:
 
@@ -96,7 +96,7 @@ legend("topright", legend = levels(colf),
 ## Solution
 
 ```{r}
-ne <- 15000 # just some typical rate 
+ne <- 15000 # just some typical eff. population size in humans 
 avg_coal_time_generations <- 2 * ne
 # we convert this to million years 
 avg_coal_time_myears <- avg_coal_time_generations * 27 / 1e6
@@ -109,12 +109,16 @@ x_vals <- seq(quantile_boundaries[1], quantile_boundaries[2], length.out = 100)
 polygon(c(quantile_boundaries[1], x_vals, quantile_boundaries[2]),
         c(0, dexp(x_vals, rate = exp_rate), 0),
         col = rgb(0, 0, 1, 0.3), border = NA)
-text(1.8, 0.5, labels = sprintf("%.2f - %.2f Mya\n(90%% probability interval", quantile_boundaries[1], quantile_boundaries[2]), cex = 0.8)
+text(1.8, 0.5, labels = sprintf("%.2f - %.2f Mya\n(90%% probability interval)", 
+                                quantile_boundaries[1], quantile_boundaries[2]),
+     cex = 0.8)
 ```
 
+Note that this calculation makes the unrealistic assumption of a constant population size. Under variable population sizes, the distribution may be shallower, but certainly still be in the ballpark of a million years and older.
 :::
 
-5. Let visualise effective population size in space, for example using the `maps` package.
+
+5. Let's visualise effective population size in space, for example using the `maps` package.
 
 ::: {.callout-tip collapse="true"}
 ## Solution
@@ -123,24 +127,30 @@ text(1.8, 0.5, labels = sprintf("%.2f - %.2f Mya\n(90%% probability interval", q
 library(maps)
 map(database = "world")
 
-# Create a color palette based on heterozygosity values
-col_palette <- colorRampPalette(c("blue", "red"))(100)
-ne_colors <- col_palette[cut(dat$Ne, breaks = 100, labels = FALSE)]
+ne_range <- range(dat$Ne, na.rm = TRUE);
+ramp <- colorRamp(c("blue", "red"))
+col_func <- function(ne) {
+     ne_scaled <- (ne - ne_range[1]) / diff(ne_range)
+     return(rgb(ramp(ne_scaled) / 255))
+}
+ne_colors <- col_func(dat$Ne);
 
 points(x = dat$longitude, y = dat$latitude, pch = 20, col = ne_colors)
 
 # Add a legend
+legend_vals <- c(ne_range[1], mean(ne_range), ne_range[2])
 legend("bottomleft", 
-       legend = c(sprintf("%.0f", min(dat$Ne, na.rm = TRUE)),
-                  sprintf("%.0f", max(dat$Ne, na.rm = TRUE))),
-       col = c(col_palette[1], col_palette[100]),
+       legend = sprintf("%.0f", legend_vals),
+       col = col_func(legend_vals),
        pch = 20,
        title = "Eff. Population Size")
 ```
 
+which clearly shows again a spatial pattern with Africa having the highest effective population size. 
+
 :::
 
-6.  Plot heterozygosity as a function of the distance from Africa, for example from Addis Abeba in East Africa (Latitude ~ 39, Longitude ~9). You can compute the distance using the Haversine formula:
+6. (Bonus) Plot heterozygosity as a function of the distance from Africa, for example from Addis Abeba in East Africa (Latitude ~ 39, Longitude ~9). You can compute the distance using the Haversine formula:
 
 $$d=2r \arcsin \left(\sqrt{\sin^2\left(\frac{\phi_2 - \phi_1}{2}\right) + \cos(\phi_1)\cos(\phi_2)\sin^2\left(\frac{\lambda_2 - \lambda_1}{2}\right)}\right)$$
 
@@ -166,7 +176,7 @@ surface_dist <- function(phi1, lambda1, phi2, lambda2) {
 }
 ```
 
-and then compute the distance to addis ababa:
+and then compute the distance to Addis Ababa:
 
 ```{r}
 dat2 <- dat |> transform(
