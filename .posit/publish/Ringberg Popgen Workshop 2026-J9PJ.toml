@@ -15,7 +15,9 @@ files = [
   '/popgen_4_ibd.qmd',
   '/_quarto.yml',
   '/.posit/publish/Ringberg Popgen Workshop 2026-J9PJ.toml',
-  '/.posit/publish/deployments/deployment-ADRP.toml'
+  '/.posit/publish/deployments/deployment-ADRP.toml',
+  '/data',
+  '/references.bib'
 ]
 title = 'Ringberg Popgen Workshop 2026'
 
