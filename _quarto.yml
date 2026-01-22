@@ -18,8 +18,10 @@ website:
         href: popgen_2_roh.qmd
       - text: "Popgen 3: FST"
         href: popgen_3_drift_fst.qmd
-      - text: "Popgen 4: IBD"
-        href: popgen_4_ibd.qmd
+      - text: "Relatedness and Pedigrees (Files)"
+        href: relatedness_files.qmd
+      - text: "IBD (Script and Files)"
+        href: ibd_script_and_files.qmd
 
 format:
   html:

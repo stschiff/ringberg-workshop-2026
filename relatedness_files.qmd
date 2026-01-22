@@ -1,0 +1,11 @@
+---
+title: "Pedigrees and Relatedness"
+bibliography: references.bib
+---
+
+This session requires the following four files:
+
+- [small_pedigree_concordance.csv](data/small_pedigree_concordance.csv)
+- [small_pedigree_KIND.csv](data/small_pedigree_KIN.csv)
+- [small_pedigree_meta.csv](data/small_pedigree_meta.csv)
+- [small_pedigree_unparentally_inherited_markers.csv](data/small_pedigree_uniparentally_inherited_markers.csv)

@@ -1,0 +1,12 @@
+Pair,Relatedness,Second Guess,Log Likelihood Ratio
+RKC007_RKC017,Siblings,Second Degree,66.834432036001
+RKC007_RKC008,Parent-Child,Second Degree,33.5196546913657
+RKC007_RKC009,Parent-Child,Second Degree,31.8219191439884
+RKC008_RKC017,Second Degree,Third Degree,1.69578149882272
+RKC008_RKC021,Parent-Child,Second Degree,35.4454024673771
+RKC008_RKC018,Second Degree,Third Degree,6.75303638392006
+RKC008_RKC009,Siblings,Second Degree,25.3273918869599
+RKC018_RKC021,Parent-Child,Second Degree,31.1522208890432
+RKC009_RKC017,Second Degree,Third Degree,6.50084306130247
+RKC009_RKC021,Second Degree,Third Degree,5.19229748961424
+RKC009_RKC018,Parent-Child,Second Degree,30.0201036727628

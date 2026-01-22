@@ -17,7 +17,13 @@ files = [
   '/.posit/publish/Ringberg Popgen Workshop 2026-J9PJ.toml',
   '/.posit/publish/deployments/deployment-ADRP.toml',
   '/data',
-  '/references.bib'
+  '/references.bib',
+  '/popgen_2_pedigrees.qmd',
+  '/popgen_3_roh.qmd',
+  '/popgen_4_drift_fst.qmd',
+  '/popgen_5_ibd.qmd',
+  '/ibd_script_and_files.qmd',
+  '/relatedness_files.qmd'
 ]
 title = 'Ringberg Popgen Workshop 2026'
 
