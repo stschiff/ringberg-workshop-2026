@@ -69,11 +69,11 @@ n_roh_prob <- function(n, a, b, ne, g) {
 ```
 
 ```{r}
-curve(n_roh_prob(0, 0.04, 0.08, x, 30), from=1000, to=50000,
+curve(n_roh_prob(0, 0.04, 0.08, x, 30), from=1000, to=100000,
       col = "red", xlab = "eff. pop. size",
       ylab = "probability",
       main = "Probability to observe 0 segments")
-curve(n_roh_prob(0, 0.04, 0.08, x, 8*30), from=1000, to=50000,
+curve(n_roh_prob(0, 0.04, 0.08, x, 8*30), from=1000, to=100000,
       add = TRUE, col = "blue")
 legend("topleft", legend=c("single individual", "8 individuals"), lty=1,
        col = c("red", "blue"))
@@ -85,7 +85,7 @@ We can compute the precise threshold, too:
 
 ```{r}
 r <- uniroot(function(n) {n_roh_prob(0, 0.04, 0.08, n, 30) - 0.05},
-             interval=c(500, 50000))
+             interval=c(500, 100000))
 r$root
 ```
 
@@ -93,7 +93,7 @@ for a single individual, and
 
 ```{r}
 r <- uniroot(function(n) {n_roh_prob(0, 0.04, 0.08, n, 8*30) - 0.05},
-             interval=c(500, 50000))
+             interval=c(500, 100000))
 r$root
 ```
 
@@ -110,7 +110,7 @@ Above, we have considered 0 segments, which allows only for a lower-bound estima
 ### Solution
 
 ```{r}
-curve(n_roh_prob(6, 0.04, 0.08, x, 8*30), from=1000, to=50000,
+curve(n_roh_prob(6, 0.02, 0.04, x, 8*30), from=1000, to=100000,
       xlab = "eff. pop. size",
       ylab = "likelihood",
       main = "Likelihood to observe 6 segments")
@@ -119,8 +119,8 @@ curve(n_roh_prob(6, 0.04, 0.08, x, 8*30), from=1000, to=50000,
 OK, so that looks like a nice bounded distribution. Note that this is not normalised to 1, as it is a likelihood (normalised over all possible observations, not over all parameters). We can normalise it to obtain a posterior distribution (assuming a flat prior):
 
 ```{r}
-norm <- integrate(function(n) n_roh_prob(6, 0.04, 0.08, n, 8*30), lower = 1000, upper = 50000)
-curve(n_roh_prob(6, 0.04, 0.08, x, 8*30) / norm$value, from=1000, to=50000,
+norm <- integrate(function(n) n_roh_prob(6, 0.02, 0.04, n, 8*30), lower = 1000, upper = 100000)
+curve(n_roh_prob(6, 0.02, 0.04, x, 8*30) / norm$value, from=1000, to=100000,
       xlab = "eff. pop. size",
       ylab = "probability density",
       main = "Posterior probability for Ne")
@@ -133,7 +133,7 @@ We can also compute the cumulative distribution:
 
 ```{r}
 n_post_cumul <- function(n) {
-    dens <- function(nn) n_roh_prob(6, 0.04, 0.08, nn, 8*30) / norm$value
+    dens <- function(nn) n_roh_prob(6, 0.02, 0.04, nn, 8*30) / norm$value
     integrate(dens, lower = 1000, upper = n)$value
 }
 ```
@@ -141,11 +141,18 @@ n_post_cumul <- function(n) {
 and use it to compute the 90% credibility interval:
 
 ```{r}
-uniroot(function(n) {n_post_cumul(n) - 0.05}, interval=c(1000, 50000))$root
-uniroot(function(n) {n_post_cumul(n) - 0.5}, interval=c(1000, 50000))$root
-uniroot(function(n) {n_post_cumul(n) - 0.95}, interval=c(1000, 50000))$root
+uniroot(function(n) {n_post_cumul(n) - 0.05}, interval=c(1000, 100000))$root
+uniroot(function(n) {n_post_cumul(n) - 0.5}, interval=c(1000, 100000))$root
+uniroot(function(n) {n_post_cumul(n) - 0.95}, interval=c(1000, 100000))$root
 ```
 
-suggesting a median of $N_e=11972$ with a 90% interval ranging from around 6000 to 28000.
+suggesting a median of $N_e=36577$ with a 90% interval ranging from around 22000 to 48000, which is quite consistent with our lower bound computed from 4-8cM above.
 
 :::
+
+<!-- ## Exercise 4
+
+[@Ringbauer2021-ze] also computed the temporal distribution of time to common ancestors of ROH segments of a given length.
+
+$\frac{1}{2N}e^{-t/N}\left(e^{-2ta}(3 + 2Gt - 2ta) - e^{-2tb}(3 + 2Gt - 2tb)\right)$
+ -->
