@@ -4,3 +4,16 @@ title: "Ringberg Popgen Workshop 2026"
 
 This Website summarises practical sessions within the Human Popgen Workshop at the 2026 Ringberg Retreat of the Department of Archaeogenetics.
 
+## Program Popgen-Workshop Ringberg Jan 2026
+
+Organisers: Zuzana Hofmanova, Stephan Schiffels
+Tutors: Zuzana Hofmanova, Stephan Schiffels, Joscha Gretzinger
+
+- 9:15 - 9:30 (Zuzana) Introduction and content overview
+- 9:30 - 10:45 (Stephan) Inferring Population Size and Structure from Genomic Data
+- 10:45 - 11:00 Coffee Break
+- 11:00 - 11:45 (Zuzana) Introduction to relatedness and pedigrees
+- 11:45 - 12:30 (Joscha) Methods for IBD detection
+- 12:30 - 13:30 Lunch Break
+- 13:30 - 15:00 (Joscha) IBD Hands-on
+- 15:00 - 16:00 Joint discussion round with Leo, Arev and Ben’s workshop
