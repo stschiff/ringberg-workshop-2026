@@ -2,4 +2,4 @@
 title: "About"
 ---
 
-Content of this site was created by Stephan Schiffels, Joscha Gretzinger and Zuzana Hofmanova. 
+Content of this site was created by Stephan Schiffels.
