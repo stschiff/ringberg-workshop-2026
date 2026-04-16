@@ -150,9 +150,9 @@ suggesting a median of $N_e=36577$ with a 90% interval ranging from around 22000
 
 :::
 
-<!-- ## Exercise 4
+## Exercise 4
 
 [@Ringbauer2021-ze] also computed the temporal distribution of time to common ancestors of ROH segments of a given length.
 
 $\frac{1}{2N}e^{-t/N}\left(e^{-2ta}(3 + 2Gt - 2ta) - e^{-2tb}(3 + 2Gt - 2tb)\right)$
- -->
+
