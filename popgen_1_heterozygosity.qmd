@@ -3,7 +3,7 @@ title: "Heterozygosity and population size estimation in humans"
 bibliography: references.bib
 ---
 
-In this practical, we will take a look at human heterozygosity data. The data comes from [@Mallick2016-xf], Supplementary Table 1, which you can download as CSV [here](data/Mallick_2016_Table_S1.csv).
+In this practical, we will take a look at human heterozygosity data. The data comes from [@Mallick2016-xf], Supplementary Table 1, which you can download as CSV <a href="data/Mallick_2016_Table_S1.csv" download>here</a>.
 
 We here load the table into an R dataframe and select and simplify column names a bit:
 

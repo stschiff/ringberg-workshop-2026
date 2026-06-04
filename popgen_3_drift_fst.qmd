@@ -97,7 +97,7 @@ where $a$ and $b$ are allele freuqencies in two populations, averaged across the
 
 We can compute this for real data, for example using [xerxes](https://www.poseidon-adna.org/#/xerxes?id=xerxes-cli-software), see also [our online book](https://mpi-eva-archaeogenetics.github.io/comp_human_adna_book/fst.html).
 
-You can find an actual table of computed FSt [here](data/fstat_world_output.tsv).
+You can find an actual table of computed FSt <a href="data/fstat_world_output.tsv" download>here</a>.
 
 ```{r}
 dat <- read.table("data/fstat_world_output.tsv",
