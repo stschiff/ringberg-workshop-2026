@@ -2,8 +2,8 @@
 '$schema' = 'https://cdn.posit.co/publisher/schemas/posit-publishing-record-schema-v3.json'
 server_type = 'connect_cloud'
 server_url = 'https://connect.posit.cloud'
-client_version = '1.29.7'
-created_at = ''
+client_version = '1.37.4'
+created_at = '2026-04-16T14:31:40+02:00'
 dismissed_at = ''
 type = 'quarto-static'
 configuration_name = 'Ringberg Popgen Workshop 2026-J9PJ'
@@ -11,8 +11,8 @@ id = '019be0cc-daab-2adf-44d7-7f661591ca84'
 dashboard_url = 'https://connect.posit.cloud/stephanschiffels/content/019be0cc-daab-2adf-44d7-7f661591ca84'
 direct_url = 'https://019be0cc-daab-2adf-44d7-7f661591ca84.share.connect.posit.cloud'
 logs_url = 'https://connect.posit.cloud/stephanschiffels/content/019be0cc-daab-2adf-44d7-7f661591ca84/history'
-deployed_at = '2026-01-22T10:00:32+01:00'
-bundle_id = '019be4ef-0cec-dc7c-c96f-a7fe3cf9a8a1'
+deployed_at = '2026-04-16T14:31:46+02:00'
+bundle_id = '019d9646-a0d1-6699-7e27-8cb23f34f7cc'
 files = [
   '.posit/publish/Ringberg Popgen Workshop 2026-J9PJ.toml',
   '.posit/publish/deployments/deployment-ADRP.toml',
@@ -20,17 +20,11 @@ files = [
   'about.qmd',
   'data/Mallick_2016_Table_S1.csv',
   'data/fstat_world_output.tsv',
-  'data/small_pedigree_KIN.csv',
-  'data/small_pedigree_concordance.csv',
-  'data/small_pedigree_meta.csv',
-  'data/small_pedigree_uniparentally_inherited_markers.csv',
-  'ibd_script_and_files.qmd',
   'index.qmd',
   'popgen_1_heterozygosity.qmd',
   'popgen_2_roh.qmd',
   'popgen_3_drift_fst.qmd',
   'references.bib',
-  'relatedness_files.qmd',
   'renv.lock'
 ]
 
@@ -132,25 +126,22 @@ author = "Douglas Bates [aut] (<https://orcid.org/0000-0001-8316-9503>), Martin 
 
 [renv.packages.R6]
 package = 'R6'
-version = '2.6.1'
+version = '2.5.1'
 source = 'Repository'
 repository = 'CRAN'
-depends = ['R (>= 3.6)']
+depends = ['R (>= 3.0)']
 hash = ''
 title = 'Encapsulated Classes with Reference Semantics'
-'authors@r' = 'c( person("Winston", "Chang", , "winston@posit.co", role = c("aut", "cre")), person("Posit Software, PBC", role = c("cph", "fnd")) )'
-maintainer = 'Winston Chang <winston@posit.co>'
+'authors@r' = 'person("Winston", "Chang", role = c("aut", "cre"), email = "winston@stdout.org")'
+maintainer = 'Winston Chang <winston@stdout.org>'
 description = "Creates classes with reference semantics, similar to R's built-in reference classes. Compared to reference classes, R6 classes are simpler and lighter-weight, and they are not built on S4 classes so they do not require the methods package. These classes allow public and private members, and they support inheritance, even when the classes are defined in different packages."
-url = 'https://r6.r-lib.org, https://github.com/r-lib/R6'
+url = 'https://r6.r-lib.org, https://github.com/r-lib/R6/'
 bugreports = 'https://github.com/r-lib/R6/issues'
 license = 'MIT + file LICENSE'
-suggests = ['lobstr', 'testthat (>= 3.0.0)']
-roxygennote = '7.3.2'
-encoding = 'UTF-8'
+suggests = ['testthat', 'pryr']
+roxygennote = '7.1.1'
 needscompilation = 'no'
-author = 'Winston Chang [aut, cre], Posit Software, PBC [cph, fnd]'
-'config/testthat/edition' = '3'
-'config/needs/website' = 'tidyverse/tidytemplate, ggplot2, microbenchmark, scales'
+author = 'Winston Chang [aut, cre]'
 
 [renv.packages.base64enc]
 package = 'base64enc'
@@ -185,7 +176,7 @@ author = 'Angelo Canty [aut] (author of original code for S), Brian Ripley [aut,
 
 [renv.packages.bslib]
 package = 'bslib'
-version = '0.9.0'
+version = '0.7.0'
 source = 'Repository'
 repository = 'CRAN'
 depends = ['R (>= 2.10)']
@@ -198,8 +189,8 @@ url = 'https://rstudio.github.io/bslib/, https://github.com/rstudio/bslib'
 bugreports = 'https://github.com/rstudio/bslib/issues'
 license = 'MIT + file LICENSE'
 imports = ['base64enc', 'cachem', 'fastmap (>= 1.1.1)', 'grDevices', 'htmltools (>= 0.5.8)', 'jquerylib (>= 0.1.3)', 'jsonlite', 'lifecycle', 'memoise (>= 2.0.1)', 'mime', 'rlang', 'sass (>= 0.4.9)']
-suggests = ['bsicons', 'curl', 'fontawesome', 'future', 'ggplot2', 'knitr', 'magrittr', 'rappdirs', 'rmarkdown (>= 2.7)', 'shiny (> 1.8.1)', 'testthat', 'thematic', 'tools', 'utils', 'withr', 'yaml']
-roxygennote = '7.3.2'
+suggests = ['bsicons', 'curl', 'fontawesome', 'future', 'ggplot2', 'knitr', 'magrittr', 'rappdirs', 'rmarkdown (>= 2.7)', 'shiny (>= 1.8.1)', 'testthat', 'thematic', 'withr']
+roxygennote = '7.3.1'
 encoding = 'UTF-8'
 needscompilation = 'no'
 author = 'Carson Sievert [aut, cre] (<https://orcid.org/0000-0002-4958-2844>), Joe Cheng [aut], Garrick Aden-Buie [aut] (<https://orcid.org/0000-0002-7111-0077>), Posit Software, PBC [cph, fnd], Bootstrap contributors [ctb] (Bootstrap library), Twitter, Inc [cph] (Bootstrap library), Javi Aguilar [ctb, cph] (Bootstrap colorpicker library), Thomas Park [ctb, cph] (Bootswatch library), PayPal [ctb, cph] (Bootstrap accessibility plugin)'
@@ -245,21 +236,21 @@ author = 'Brian Ripley [aut, cre, cph], William Venables [cph]'
 
 [renv.packages.cli]
 package = 'cli'
-version = '3.6.5'
+version = '3.6.2'
 source = 'Repository'
 repository = 'CRAN'
 depends = ['R (>= 3.4)']
 hash = ''
 title = 'Helpers for Developing Command Line Interfaces'
-'authors@r' = 'c( person("Gábor", "Csárdi", , "gabor@posit.co", role = c("aut", "cre")), person("Hadley", "Wickham", role = "ctb"), person("Kirill", "Müller", role = "ctb"), person("Salim", "Brüggemann", , "salim-b@pm.me", role = "ctb", comment = c(ORCID = "0000-0002-5329-5987")), person("Posit Software, PBC", role = c("cph", "fnd")) )'
-maintainer = 'Gábor Csárdi <gabor@posit.co>'
+'authors@r' = 'c( person("Gábor", "Csárdi", , "csardi.gabor@gmail.com", role = c("aut", "cre")), person("Hadley", "Wickham", role = "ctb"), person("Kirill", "Müller", role = "ctb"), person("Salim", "Brüggemann", , "salim-b@pm.me", role = "ctb", comment = c(ORCID = "0000-0002-5329-5987")), person("Posit Software, PBC", role = c("cph", "fnd")) )'
+maintainer = 'Gábor Csárdi <csardi.gabor@gmail.com>'
 description = "A suite of tools to build attractive command line interfaces ('CLIs'), from semantic elements: headings, lists, alerts, paragraphs, etc. Supports custom themes via a 'CSS'-like language. It also contains a number of lower level 'CLI' elements: rules, boxes, trees, and 'Unicode' symbols with 'ASCII' alternatives. It support ANSI colors and text styles as well."
 url = 'https://cli.r-lib.org, https://github.com/r-lib/cli'
 bugreports = 'https://github.com/r-lib/cli/issues'
 license = 'MIT + file LICENSE'
 imports = ['utils']
-suggests = ['callr', 'covr', 'crayon', 'digest', 'glue (>= 1.6.0)', 'grDevices', 'htmltools', 'htmlwidgets', 'knitr', 'methods', 'processx', 'ps (>= 1.3.4.9000)', 'rlang (>= 1.0.2.9003)', 'rmarkdown', 'rprojroot', 'rstudioapi', 'testthat (>= 3.2.0)', 'tibble', 'whoami', 'withr']
-roxygennote = '7.3.2'
+suggests = ['callr', 'covr', 'crayon', 'digest', 'glue (>= 1.6.0)', 'grDevices', 'htmltools', 'htmlwidgets', 'knitr', 'methods', 'mockery', 'processx', 'ps (>= 1.3.4.9000)', 'rlang (>= 1.0.2.9003)', 'rmarkdown', 'rprojroot', 'rstudioapi', 'testthat', 'tibble', 'whoami', 'withr']
+roxygennote = '7.2.3'
 encoding = 'UTF-8'
 needscompilation = 'yes'
 author = 'Gábor Csárdi [aut, cre], Hadley Wickham [ctb], Kirill Müller [ctb], Salim Brüggemann [ctb] (<https://orcid.org/0000-0002-5329-5987>), Posit Software, PBC [cph, fnd]'
@@ -301,28 +292,26 @@ author = 'Luke Tierney <luke-tierney@uiowa.edu>'
 
 [renv.packages.digest]
 package = 'digest'
-version = '0.6.39'
+version = '0.6.35'
 source = 'Repository'
 repository = 'CRAN'
 depends = ['R (>= 3.3.0)']
 hash = ''
 title = 'Create Compact Hash Digests of R Objects'
-'authors@r' = 'c(person("Dirk", "Eddelbuettel", role = c("aut", "cre"), email = "edd@debian.org", comment = c(ORCID = "0000-0001-6419-907X")), person("Antoine", "Lucas", role="ctb", comment = c(ORCID = "0000-0002-8059-9767")), person("Jarek", "Tuszynski", role="ctb"), person("Henrik", "Bengtsson", role="ctb", comment = c(ORCID = "0000-0002-7579-5165")), person("Simon", "Urbanek", role="ctb", comment = c(ORCID = "0000-0003-2297-1732")), person("Mario", "Frasca", role="ctb"), person("Bryan", "Lewis", role="ctb"), person("Murray", "Stokely", role="ctb"), person("Hannes", "Muehleisen", role="ctb", comment = c(ORCID = "0000-0001-8552-0029")), person("Duncan", "Murdoch", role="ctb"), person("Jim", "Hester", role="ctb", comment = c(ORCID = "0000-0002-2739-7082")), person("Wush", "Wu", role="ctb", comment = c(ORCID = "0000-0001-5180-0567")), person("Qiang", "Kou", role="ctb", comment = c(ORCID = "0000-0001-6786-5453")), person("Thierry", "Onkelinx", role="ctb", comment = c(ORCID = "0000-0001-8804-4216")), person("Michel", "Lang", role="ctb", comment = c(ORCID = "0000-0001-9754-0393")), person("Viliam", "Simko", role="ctb"), person("Kurt", "Hornik", role="ctb", comment = c(ORCID = "0000-0003-4198-9911")), person("Radford", "Neal", role="ctb", comment = c(ORCID = "0000-0002-2473-3407")), person("Kendon", "Bell", role="ctb", comment = c(ORCID = "0000-0002-9093-8312")), person("Matthew", "de Queljoe", role="ctb"), person("Dmitry", "Selivanov", role="ctb", comment = c(ORCID = "0000-0003-0492-6647")), person("Ion", "Suruceanu", role="ctb", comment = c(ORCID = "0009-0005-6446-4909")), person("Bill", "Denney", role="ctb", comment = c(ORCID = "0000-0002-5759-428X")), person("Dirk", "Schumacher", role="ctb"), person("András", "Svraka", role="ctb", comment = c(ORCID = "0009-0008-8480-1329")), person("Sergey", "Fedorov", role="ctb", comment = c(ORCID = "0000-0002-5970-7233")), person("Will", "Landau", role="ctb", comment = c(ORCID = "0000-0003-1878-3253")), person("Floris", "Vanderhaeghe", role="ctb", comment = c(ORCID = "0000-0002-6378-6229")), person("Kevin", "Tappe", role="ctb"), person("Harris", "McGehee", role="ctb"), person("Tim", "Mastny", role="ctb"), person("Aaron", "Peikert", role="ctb", comment = c(ORCID = "0000-0001-7813-818X")), person("Mark", "van der Loo", role="ctb", comment = c(ORCID = "0000-0002-9807-4686")), person("Chris", "Muir", role="ctb", comment = c(ORCID = "0000-0003-2555-3878")), person("Moritz", "Beller", role="ctb", comment = c(ORCID = "0000-0003-4852-0526")), person("Sebastian", "Campbell", role="ctb", comment = c(ORCID = "0009-0000-5948-4503")), person("Winston", "Chang", role="ctb", comment = c(ORCID = "0000-0002-1576-2126")), person("Dean", "Attali", role="ctb", comment = c(ORCID = "0000-0002-5645-3493")), person("Michael", "Chirico", role="ctb", comment = c(ORCID = "0000-0003-0787-087X")), person("Kevin", "Ushey", role="ctb", comment = c(ORCID = "0000-0003-2880-7407")), person("Carl", "Pearson", role="ctb", comment = c(ORCID = "0000-0003-0701-7860")))'
 maintainer = 'Dirk Eddelbuettel <edd@debian.org>'
-description = "Implementation of a function 'digest()' for the creation of hash digests of arbitrary R objects (using the 'md5', 'sha-1', 'sha-256', 'crc32', 'xxhash', 'murmurhash', 'spookyhash', 'blake3', 'crc32c', 'xxh3_64', and 'xxh3_128' algorithms) permitting easy comparison of R language objects, as well as functions such as 'hmac()' to create hash-based message authentication code. Please note that this package is not meant to be deployed for cryptographic purposes for which more comprehensive (and widely tested) libraries such as 'OpenSSL' should be used."
-url = 'https://github.com/eddelbuettel/digest, https://eddelbuettel.github.io/digest/, https://dirk.eddelbuettel.com/code/digest.html'
+description = "Implementation of a function 'digest()' for the creation of hash digests of arbitrary R objects (using the 'md5', 'sha-1', 'sha-256', 'crc32', 'xxhash', 'murmurhash', 'spookyhash', 'blake3', 'crc32c', 'xxh3_64', and 'xxh3_128' algorithms) permitting easy comparison of R language objects, as well as functions such as'hmac()' to create hash-based message authentication code. Please note that this package is not meant to be deployed for cryptographic purposes for which more comprehensive (and widely tested) libraries such as 'OpenSSL' should be used."
+url = 'https://github.com/eddelbuettel/digest, https://dirk.eddelbuettel.com/code/digest.html'
 bugreports = 'https://github.com/eddelbuettel/digest/issues'
 license = 'GPL (>= 2)'
 imports = ['utils']
-suggests = ['tinytest', 'simplermarkdown', 'rbenchmark']
+suggests = ['tinytest', 'simplermarkdown']
 vignettebuilder = 'simplermarkdown'
-encoding = 'UTF-8'
 needscompilation = 'yes'
-author = 'Dirk Eddelbuettel [aut, cre] (ORCID: <https://orcid.org/0000-0001-6419-907X>), Antoine Lucas [ctb] (ORCID: <https://orcid.org/0000-0002-8059-9767>), Jarek Tuszynski [ctb], Henrik Bengtsson [ctb] (ORCID: <https://orcid.org/0000-0002-7579-5165>), Simon Urbanek [ctb] (ORCID: <https://orcid.org/0000-0003-2297-1732>), Mario Frasca [ctb], Bryan Lewis [ctb], Murray Stokely [ctb], Hannes Muehleisen [ctb] (ORCID: <https://orcid.org/0000-0001-8552-0029>), Duncan Murdoch [ctb], Jim Hester [ctb] (ORCID: <https://orcid.org/0000-0002-2739-7082>), Wush Wu [ctb] (ORCID: <https://orcid.org/0000-0001-5180-0567>), Qiang Kou [ctb] (ORCID: <https://orcid.org/0000-0001-6786-5453>), Thierry Onkelinx [ctb] (ORCID: <https://orcid.org/0000-0001-8804-4216>), Michel Lang [ctb] (ORCID: <https://orcid.org/0000-0001-9754-0393>), Viliam Simko [ctb], Kurt Hornik [ctb] (ORCID: <https://orcid.org/0000-0003-4198-9911>), Radford Neal [ctb] (ORCID: <https://orcid.org/0000-0002-2473-3407>), Kendon Bell [ctb] (ORCID: <https://orcid.org/0000-0002-9093-8312>), Matthew de Queljoe [ctb], Dmitry Selivanov [ctb] (ORCID: <https://orcid.org/0000-0003-0492-6647>), Ion Suruceanu [ctb] (ORCID: <https://orcid.org/0009-0005-6446-4909>), Bill Denney [ctb] (ORCID: <https://orcid.org/0000-0002-5759-428X>), Dirk Schumacher [ctb], András Svraka [ctb] (ORCID: <https://orcid.org/0009-0008-8480-1329>), Sergey Fedorov [ctb] (ORCID: <https://orcid.org/0000-0002-5970-7233>), Will Landau [ctb] (ORCID: <https://orcid.org/0000-0003-1878-3253>), Floris Vanderhaeghe [ctb] (ORCID: <https://orcid.org/0000-0002-6378-6229>), Kevin Tappe [ctb], Harris McGehee [ctb], Tim Mastny [ctb], Aaron Peikert [ctb] (ORCID: <https://orcid.org/0000-0001-7813-818X>), Mark van der Loo [ctb] (ORCID: <https://orcid.org/0000-0002-9807-4686>), Chris Muir [ctb] (ORCID: <https://orcid.org/0000-0003-2555-3878>), Moritz Beller [ctb] (ORCID: <https://orcid.org/0000-0003-4852-0526>), Sebastian Campbell [ctb] (ORCID: <https://orcid.org/0009-0000-5948-4503>), Winston Chang [ctb] (ORCID: <https://orcid.org/0000-0002-1576-2126>), Dean Attali [ctb] (ORCID: <https://orcid.org/0000-0002-5645-3493>), Michael Chirico [ctb] (ORCID: <https://orcid.org/0000-0003-0787-087X>), Kevin Ushey [ctb] (ORCID: <https://orcid.org/0000-0003-2880-7407>), Carl Pearson [ctb] (ORCID: <https://orcid.org/0000-0003-0701-7860>)'
+author = 'Dirk Eddelbuettel <edd@debian.org> with contributions by Antoine Lucas, Jarek Tuszynski, Henrik Bengtsson, Simon Urbanek, Mario Frasca, Bryan Lewis, Murray Stokely, Hannes Muehleisen, Duncan Murdoch, Jim Hester, Wush Wu, Qiang Kou, Thierry Onkelinx, Michel Lang, Viliam Simko, Kurt Hornik, Radford Neal, Kendon Bell, Matthew de Queljoe, Ion Suruceanu, Bill Denney, Dirk Schumacher, Winston Chang, Dean Attali, and Michael Chirico.'
 
 [renv.packages.evaluate]
 package = 'evaluate'
-version = '1.0.5'
+version = '1.0.3'
 source = 'Repository'
 repository = 'CRAN'
 depends = ['R (>= 3.6.0)']
@@ -335,11 +324,11 @@ description = 'Parsing and evaluation tools that make it easy to recreate the co
 url = 'https://evaluate.r-lib.org/, https://github.com/r-lib/evaluate'
 bugreports = 'https://github.com/r-lib/evaluate/issues'
 license = 'MIT + file LICENSE'
-suggests = ['callr', 'covr', 'ggplot2 (>= 3.3.6)', 'lattice', 'methods', 'pkgload', 'ragg (>= 1.4.0)', 'rlang (>= 1.1.5)', 'knitr', 'testthat (>= 3.0.0)', 'withr']
+suggests = ['callr', 'covr', 'ggplot2 (>= 3.3.6)', 'lattice', 'methods', 'pkgload', 'rlang', 'knitr', 'testthat (>= 3.0.0)', 'withr']
 roxygennote = '7.3.2'
 encoding = 'UTF-8'
 needscompilation = 'no'
-author = 'Hadley Wickham [aut, cre], Yihui Xie [aut] (ORCID: <https://orcid.org/0000-0003-0645-5666>), Michael Lawrence [ctb], Thomas Kluyver [ctb], Jeroen Ooms [ctb], Barret Schloerke [ctb], Adam Ryczkowski [ctb], Hiroaki Yutani [ctb], Michel Lang [ctb], Karolis Koncevičius [ctb], Posit Software, PBC [cph, fnd]'
+author = 'Hadley Wickham [aut, cre], Yihui Xie [aut] (<https://orcid.org/0000-0003-0645-5666>), Michael Lawrence [ctb], Thomas Kluyver [ctb], Jeroen Ooms [ctb], Barret Schloerke [ctb], Adam Ryczkowski [ctb], Hiroaki Yutani [ctb], Michel Lang [ctb], Karolis Koncevičius [ctb], Posit Software, PBC [cph, fnd]'
 'config/testthat/edition' = '3'
 'config/needs/website' = 'tidyverse/tidytemplate'
 
@@ -364,7 +353,7 @@ author = 'Winston Chang [aut, cre], Posit Software, PBC [cph, fnd], Tessil [cph]
 
 [renv.packages.fontawesome]
 package = 'fontawesome'
-version = '0.5.3'
+version = '0.5.2'
 source = 'Repository'
 repository = 'CRAN'
 depends = ['R (>= 3.3.0)']
@@ -378,8 +367,8 @@ url = 'https://github.com/rstudio/fontawesome, https://rstudio.github.io/fontawe
 bugreports = 'https://github.com/rstudio/fontawesome/issues'
 license = 'MIT + file LICENSE'
 imports = ['rlang (>= 1.0.6)', 'htmltools (>= 0.5.1.1)']
-suggests = ['covr', 'dplyr (>= 1.0.8)', 'gt (>= 0.9.0)', 'knitr (>= 1.31)', 'testthat (>= 3.0.0)', 'rsvg']
-roxygennote = '7.3.2'
+suggests = ['covr', 'dplyr (>= 1.0.8)', 'knitr (>= 1.31)', 'testthat (>= 3.0.0)', 'rsvg']
+roxygennote = '7.2.3'
 encoding = 'UTF-8'
 needscompilation = 'no'
 author = 'Richard Iannone [aut, cre] (<https://orcid.org/0000-0003-3925-190X>), Christophe Dervieux [ctb] (<https://orcid.org/0000-0003-4474-2498>), Winston Chang [ctb], Dave Gandy [ctb, cph] (Font-Awesome font), Posit Software, PBC [cph, fnd]'
@@ -405,7 +394,7 @@ author = 'R Core Team [aut, cph, cre], Roger Bivand [ctb, cph], Vincent J. Carey
 
 [renv.packages.fs]
 package = 'fs'
-version = '1.6.6'
+version = '1.6.4'
 source = 'Repository'
 repository = 'CRAN'
 depends = ['R (>= 3.6)']
@@ -427,6 +416,30 @@ author = 'Jim Hester [aut], Hadley Wickham [aut], Gábor Csárdi [aut, cre], lib
 'config/testthat/edition' = '3'
 'config/needs/website' = 'tidyverse/tidytemplate'
 systemrequirements = 'GNU make'
+
+[renv.packages.glue]
+package = 'glue'
+version = '1.7.0'
+source = 'Repository'
+repository = 'CRAN'
+depends = ['R (>= 3.6)']
+hash = ''
+title = 'Interpreted String Literals'
+'authors@r' = 'c( person("Jim", "Hester", role = "aut", comment = c(ORCID = "0000-0002-2739-7082")), person("Jennifer", "Bryan", , "jenny@posit.co", role = c("aut", "cre"), comment = c(ORCID = "0000-0002-6983-2759")), person("Posit Software, PBC", role = c("cph", "fnd")) )'
+maintainer = 'Jennifer Bryan <jenny@posit.co>'
+description = "An implementation of interpreted string literals, inspired by Python's Literal String Interpolation <https://www.python.org/dev/peps/pep-0498/> and Docstrings <https://www.python.org/dev/peps/pep-0257/> and Julia's Triple-Quoted String Literals <https://docs.julialang.org/en/v1.3/manual/strings/#Triple-Quoted-String-Literals-1>."
+url = 'https://glue.tidyverse.org/, https://github.com/tidyverse/glue'
+bugreports = 'https://github.com/tidyverse/glue/issues'
+license = 'MIT + file LICENSE'
+imports = ['methods']
+suggests = ['crayon', 'DBI (>= 1.2.0)', 'dplyr', 'knitr', 'magrittr', 'rlang', 'rmarkdown', 'RSQLite', 'testthat (>= 3.2.0)', 'vctrs (>= 0.3.0)', 'waldo (>= 0.3.0)', 'withr']
+vignettebuilder = 'knitr'
+roxygennote = '7.2.3.9000'
+encoding = 'UTF-8'
+needscompilation = 'yes'
+author = 'Jim Hester [aut] (<https://orcid.org/0000-0002-2739-7082>), Jennifer Bryan [aut, cre] (<https://orcid.org/0000-0002-6983-2759>), Posit Software, PBC [cph, fnd]'
+'config/testthat/edition' = '3'
+'config/needs/website' = 'bench, forcats, ggbeeswarm, ggplot2, R.utils, rprintf, tidyr, tidyverse/tidytemplate'
 
 [renv.packages.highr]
 package = 'highr'
@@ -453,7 +466,7 @@ author = 'Yihui Xie [aut, cre] (<https://orcid.org/0000-0003-0645-5666>), Yixuan
 
 [renv.packages.htmltools]
 package = 'htmltools'
-version = '0.5.9'
+version = '0.5.8.1'
 source = 'Repository'
 repository = 'CRAN'
 depends = ['R (>= 2.14.1)']
@@ -468,10 +481,10 @@ bugreports = 'https://github.com/rstudio/htmltools/issues'
 license = 'GPL (>= 2)'
 imports = ['base64enc', 'digest', 'fastmap (>= 1.1.0)', 'grDevices', 'rlang (>= 1.0.0)', 'utils']
 suggests = ['Cairo', 'markdown', 'ragg', 'shiny', 'testthat', 'withr']
-roxygennote = '7.3.3'
+roxygennote = '7.3.1'
 encoding = 'UTF-8'
 needscompilation = 'yes'
-author = 'Joe Cheng [aut], Carson Sievert [aut, cre] (ORCID: <https://orcid.org/0000-0002-4958-2844>), Barret Schloerke [aut] (ORCID: <https://orcid.org/0000-0001-9986-114X>), Winston Chang [aut] (ORCID: <https://orcid.org/0000-0002-1576-2126>), Yihui Xie [aut], Jeff Allen [aut], Posit Software, PBC [cph, fnd]'
+author = 'Joe Cheng [aut], Carson Sievert [aut, cre] (<https://orcid.org/0000-0002-4958-2844>), Barret Schloerke [aut] (<https://orcid.org/0000-0001-9986-114X>), Winston Chang [aut] (<https://orcid.org/0000-0002-1576-2126>), Yihui Xie [aut], Jeff Allen [aut], Posit Software, PBC [cph, fnd]'
 'config/needs/website' = 'rstudio/quillt, bench'
 
 [renv.packages.jquerylib]
@@ -495,47 +508,47 @@ author = 'Carson Sievert [aut, cre] (<https://orcid.org/0000-0002-4958-2844>), J
 
 [renv.packages.jsonlite]
 package = 'jsonlite'
-version = '2.0.0'
+version = '1.8.8'
 source = 'Repository'
 repository = 'CRAN'
 depends = ['methods']
 hash = ''
 title = 'A Simple and Robust JSON Parser and Generator for R'
-'authors@r' = 'c( person("Jeroen", "Ooms", role = c("aut", "cre"), email = "jeroenooms@gmail.com", comment = c(ORCID = "0000-0002-4035-0289")), person("Duncan", "Temple Lang", role = "ctb"), person("Lloyd", "Hilaiel", role = "cph", comment="author of bundled libyajl"))'
-maintainer = 'Jeroen Ooms <jeroenooms@gmail.com>'
+'authors@r' = 'c( person("Jeroen", "Ooms", role = c("aut", "cre"), email = "jeroen@berkeley.edu", comment = c(ORCID = "0000-0002-4035-0289")), person("Duncan", "Temple Lang", role = "ctb"), person("Lloyd", "Hilaiel", role = "cph", comment="author of bundled libyajl"))'
+maintainer = 'Jeroen Ooms <jeroen@berkeley.edu>'
 description = "A reasonably fast JSON parser and generator, optimized for statistical  data and the web. Offers simple, flexible tools for working with JSON in R, and is particularly powerful for building pipelines and interacting with a web API.  The implementation is based on the mapping described in the vignette (Ooms, 2014). In addition to converting JSON data from/to R objects, 'jsonlite' contains  functions to stream, validate, and prettify JSON data. The unit tests included  with the package verify that all edge cases are encoded and decoded consistently  for use with dynamic data in systems and applications."
 url = 'https://jeroen.r-universe.dev/jsonlite https://arxiv.org/abs/1403.2805'
 bugreports = 'https://github.com/jeroen/jsonlite/issues'
 license = 'MIT + file LICENSE'
 suggests = ['httr', 'vctrs', 'testthat', 'knitr', 'rmarkdown', 'R.rsp', 'sf']
 vignettebuilder = 'knitr, R.rsp'
-roxygennote = '7.3.2'
+roxygennote = '7.2.3'
 encoding = 'UTF-8'
 needscompilation = 'yes'
 author = 'Jeroen Ooms [aut, cre] (<https://orcid.org/0000-0002-4035-0289>), Duncan Temple Lang [ctb], Lloyd Hilaiel [cph] (author of bundled libyajl)'
 
 [renv.packages.knitr]
 package = 'knitr'
-version = '1.51'
+version = '1.47'
 source = 'Repository'
 repository = 'CRAN'
-depends = ['R (>= 3.6.0)']
+depends = ['R (>= 3.3.0)']
 hash = ''
 type = 'Package'
 title = 'A General-Purpose Package for Dynamic Report Generation in R'
-'authors@r' = 'c( person("Yihui", "Xie", role = c("aut", "cre"), email = "xie@yihui.name", comment = c(ORCID = "0000-0003-0645-5666", URL = "https://yihui.org")), person("Abhraneel", "Sarma", role = "ctb"), person("Adam", "Vogt", role = "ctb"), person("Alastair", "Andrew", role = "ctb"), person("Alex", "Zvoleff", role = "ctb"), person("Amar", "Al-Zubaidi", role = "ctb"), person("Andre", "Simon", role = "ctb", comment = "the CSS files under inst/themes/ were derived from the Highlight package http://www.andre-simon.de"), person("Aron", "Atkins", role = "ctb"), person("Aaron", "Wolen", role = "ctb"), person("Ashley", "Manton", role = "ctb"), person("Atsushi", "Yasumoto", role = "ctb", comment = c(ORCID = "0000-0002-8335-495X")), person("Ben", "Baumer", role = "ctb"), person("Brian", "Diggs", role = "ctb"), person("Brian", "Zhang", role = "ctb"), person("Bulat", "Yapparov", role = "ctb"), person("Cassio", "Pereira", role = "ctb"), person("Christophe", "Dervieux", role = "ctb"), person("David", "Hall", role = "ctb"), person("David", "Hugh-Jones", role = "ctb"), person("David", "Robinson", role = "ctb"), person("Doug", "Hemken", role = "ctb"), person("Duncan", "Murdoch", role = "ctb"), person("Elio", "Campitelli", role = "ctb"), person("Ellis", "Hughes", role = "ctb"), person("Emily", "Riederer", role = "ctb"), person("Fabian", "Hirschmann", role = "ctb"), person("Fitch", "Simeon", role = "ctb"), person("Forest", "Fang", role = "ctb"), person(c("Frank", "E", "Harrell", "Jr"), role = "ctb", comment = "the Sweavel package at inst/misc/Sweavel.sty"), person("Garrick", "Aden-Buie", role = "ctb"), person("Gregoire", "Detrez", role = "ctb"), person("Hadley", "Wickham", role = "ctb"), person("Hao", "Zhu", role = "ctb"), person("Heewon", "Jeon", role = "ctb"), person("Henrik", "Bengtsson", role = "ctb"), person("Hiroaki", "Yutani", role = "ctb"), person("Ian", "Lyttle", role = "ctb"), person("Hodges", "Daniel", role = "ctb"), person("Jacob", "Bien", role = "ctb"), person("Jake", "Burkhead", role = "ctb"), person("James", "Manton", role = "ctb"), person("Jared", "Lander", role = "ctb"), person("Jason", "Punyon", role = "ctb"), person("Javier", "Luraschi", role = "ctb"), person("Jeff", "Arnold", role = "ctb"), person("Jenny", "Bryan", role = "ctb"), person("Jeremy", "Ashkenas", role = c("ctb", "cph"), comment = "the CSS file at inst/misc/docco-classic.css"), person("Jeremy", "Stephens", role = "ctb"), person("Jim", "Hester", role = "ctb"), person("Joe", "Cheng", role = "ctb"), person("Johannes", "Ranke", role = "ctb"), person("John", "Honaker", role = "ctb"), person("John", "Muschelli", role = "ctb"), person("Jonathan", "Keane", role = "ctb"), person("JJ", "Allaire", role = "ctb"), person("Johan", "Toloe", role = "ctb"), person("Jonathan", "Sidi", role = "ctb"), person("Joseph", "Larmarange", role = "ctb"), person("Julien", "Barnier", role = "ctb"), person("Kaiyin", "Zhong", role = "ctb"), person("Kamil", "Slowikowski", role = "ctb"), person("Karl", "Forner", role = "ctb"), person(c("Kevin", "K."), "Smith", role = "ctb"), person("Kirill", "Mueller", role = "ctb"), person("Kohske", "Takahashi", role = "ctb"), person("Lorenz", "Walthert", role = "ctb"), person("Lucas", "Gallindo", role = "ctb"), person("Marius", "Hofert", role = "ctb"), person("Martin", "Modrák", role = "ctb"), person("Michael", "Chirico", role = "ctb"), person("Michael", "Friendly", role = "ctb"), person("Michal", "Bojanowski", role = "ctb"), person("Michel", "Kuhlmann", role = "ctb"), person("Miller", "Patrick", role = "ctb"), person("Nacho", "Caballero", role = "ctb"), person("Nick", "Salkowski", role = "ctb"), person("Niels Richard", "Hansen", role = "ctb"), person("Noam", "Ross", role = "ctb"), person("Obada", "Mahdi", role = "ctb"), person("Pavel N.", "Krivitsky", role = "ctb", comment=c(ORCID = "0000-0002-9101-3362")), person("Pedro", "Faria", role = "ctb"), person("Qiang", "Li", role = "ctb"), person("Ramnath", "Vaidyanathan", role = "ctb"), person("Richard", "Cotton", role = "ctb"), person("Robert", "Krzyzanowski", role = "ctb"), person("Rodrigo", "Copetti", role = "ctb"), person("Romain", "Francois", role = "ctb"), person("Ruaridh", "Williamson", role = "ctb"), person("Sagiru", "Mati", role = "ctb", comment = c(ORCID = "0000-0003-1413-3974")), person("Scott", "Kostyshak", role = "ctb"), person("Sebastian", "Meyer", role = "ctb"), person("Sietse", "Brouwer", role = "ctb"), person(c("Simon", "de"), "Bernard", role = "ctb"), person("Sylvain", "Rousseau", role = "ctb"), person("Taiyun", "Wei", role = "ctb"), person("Thibaut", "Assus", role = "ctb"), person("Thibaut", "Lamadon", role = "ctb"), person("Thomas", "Leeper", role = "ctb"), person("Tim", "Mastny", role = "ctb"), person("Tom", "Torsney-Weir", role = "ctb"), person("Trevor", "Davis", role = "ctb"), person("Viktoras", "Veitas", role = "ctb"), person("Weicheng", "Zhu", role = "ctb"), person("Wush", "Wu", role = "ctb"), person("Zachary", "Foster", role = "ctb"), person("Zhian N.", "Kamvar", role = "ctb", comment = c(ORCID = "0000-0003-1458-7108")), person(given = "Posit Software, PBC", role = c("cph", "fnd")) )'
+'authors@r' = 'c( person("Yihui", "Xie", role = c("aut", "cre"), email = "xie@yihui.name", comment = c(ORCID = "0000-0003-0645-5666")), person("Abhraneel", "Sarma", role = "ctb"), person("Adam", "Vogt", role = "ctb"), person("Alastair", "Andrew", role = "ctb"), person("Alex", "Zvoleff", role = "ctb"), person("Amar", "Al-Zubaidi", role = "ctb"), person("Andre", "Simon", role = "ctb", comment = "the CSS files under inst/themes/ were derived from the Highlight package http://www.andre-simon.de"), person("Aron", "Atkins", role = "ctb"), person("Aaron", "Wolen", role = "ctb"), person("Ashley", "Manton", role = "ctb"), person("Atsushi", "Yasumoto", role = "ctb", comment = c(ORCID = "0000-0002-8335-495X")), person("Ben", "Baumer", role = "ctb"), person("Brian", "Diggs", role = "ctb"), person("Brian", "Zhang", role = "ctb"), person("Bulat", "Yapparov", role = "ctb"), person("Cassio", "Pereira", role = "ctb"), person("Christophe", "Dervieux", role = "ctb"), person("David", "Hall", role = "ctb"), person("David", "Hugh-Jones", role = "ctb"), person("David", "Robinson", role = "ctb"), person("Doug", "Hemken", role = "ctb"), person("Duncan", "Murdoch", role = "ctb"), person("Elio", "Campitelli", role = "ctb"), person("Ellis", "Hughes", role = "ctb"), person("Emily", "Riederer", role = "ctb"), person("Fabian", "Hirschmann", role = "ctb"), person("Fitch", "Simeon", role = "ctb"), person("Forest", "Fang", role = "ctb"), person(c("Frank", "E", "Harrell", "Jr"), role = "ctb", comment = "the Sweavel package at inst/misc/Sweavel.sty"), person("Garrick", "Aden-Buie", role = "ctb"), person("Gregoire", "Detrez", role = "ctb"), person("Hadley", "Wickham", role = "ctb"), person("Hao", "Zhu", role = "ctb"), person("Heewon", "Jeon", role = "ctb"), person("Henrik", "Bengtsson", role = "ctb"), person("Hiroaki", "Yutani", role = "ctb"), person("Ian", "Lyttle", role = "ctb"), person("Hodges", "Daniel", role = "ctb"), person("Jacob", "Bien", role = "ctb"), person("Jake", "Burkhead", role = "ctb"), person("James", "Manton", role = "ctb"), person("Jared", "Lander", role = "ctb"), person("Jason", "Punyon", role = "ctb"), person("Javier", "Luraschi", role = "ctb"), person("Jeff", "Arnold", role = "ctb"), person("Jenny", "Bryan", role = "ctb"), person("Jeremy", "Ashkenas", role = c("ctb", "cph"), comment = "the CSS file at inst/misc/docco-classic.css"), person("Jeremy", "Stephens", role = "ctb"), person("Jim", "Hester", role = "ctb"), person("Joe", "Cheng", role = "ctb"), person("Johannes", "Ranke", role = "ctb"), person("John", "Honaker", role = "ctb"), person("John", "Muschelli", role = "ctb"), person("Jonathan", "Keane", role = "ctb"), person("JJ", "Allaire", role = "ctb"), person("Johan", "Toloe", role = "ctb"), person("Jonathan", "Sidi", role = "ctb"), person("Joseph", "Larmarange", role = "ctb"), person("Julien", "Barnier", role = "ctb"), person("Kaiyin", "Zhong", role = "ctb"), person("Kamil", "Slowikowski", role = "ctb"), person("Karl", "Forner", role = "ctb"), person(c("Kevin", "K."), "Smith", role = "ctb"), person("Kirill", "Mueller", role = "ctb"), person("Kohske", "Takahashi", role = "ctb"), person("Lorenz", "Walthert", role = "ctb"), person("Lucas", "Gallindo", role = "ctb"), person("Marius", "Hofert", role = "ctb"), person("Martin", "Modrák", role = "ctb"), person("Michael", "Chirico", role = "ctb"), person("Michael", "Friendly", role = "ctb"), person("Michal", "Bojanowski", role = "ctb"), person("Michel", "Kuhlmann", role = "ctb"), person("Miller", "Patrick", role = "ctb"), person("Nacho", "Caballero", role = "ctb"), person("Nick", "Salkowski", role = "ctb"), person("Niels Richard", "Hansen", role = "ctb"), person("Noam", "Ross", role = "ctb"), person("Obada", "Mahdi", role = "ctb"), person("Pavel N.", "Krivitsky", role = "ctb", comment=c(ORCID = "0000-0002-9101-3362")), person("Pedro", "Faria", role = "ctb"), person("Qiang", "Li", role = "ctb"), person("Ramnath", "Vaidyanathan", role = "ctb"), person("Richard", "Cotton", role = "ctb"), person("Robert", "Krzyzanowski", role = "ctb"), person("Rodrigo", "Copetti", role = "ctb"), person("Romain", "Francois", role = "ctb"), person("Ruaridh", "Williamson", role = "ctb"), person("Sagiru", "Mati", role = "ctb", comment = c(ORCID = "0000-0003-1413-3974")), person("Scott", "Kostyshak", role = "ctb"), person("Sebastian", "Meyer", role = "ctb"), person("Sietse", "Brouwer", role = "ctb"), person(c("Simon", "de"), "Bernard", role = "ctb"), person("Sylvain", "Rousseau", role = "ctb"), person("Taiyun", "Wei", role = "ctb"), person("Thibaut", "Assus", role = "ctb"), person("Thibaut", "Lamadon", role = "ctb"), person("Thomas", "Leeper", role = "ctb"), person("Tim", "Mastny", role = "ctb"), person("Tom", "Torsney-Weir", role = "ctb"), person("Trevor", "Davis", role = "ctb"), person("Viktoras", "Veitas", role = "ctb"), person("Weicheng", "Zhu", role = "ctb"), person("Wush", "Wu", role = "ctb"), person("Zachary", "Foster", role = "ctb"), person("Zhian N.", "Kamvar", role = "ctb", comment = c(ORCID = "0000-0003-1458-7108")), person(given = "Posit Software, PBC", role = c("cph", "fnd")) )'
 maintainer = 'Yihui Xie <xie@yihui.name>'
 description = 'Provides a general-purpose tool for dynamic report generation in R using Literate Programming techniques.'
 url = 'https://yihui.org/knitr/'
 bugreports = 'https://github.com/yihui/knitr/issues'
 license = 'GPL'
-imports = ['evaluate (>= 0.15)', 'highr (>= 0.11)', 'methods', 'tools', 'xfun (>= 0.52)', 'yaml (>= 2.1.19)']
-suggests = ['bslib', 'DBI (>= 0.4-1)', 'digest', 'formatR', 'gifski', 'gridSVG', 'htmlwidgets (>= 0.7)', 'jpeg', 'JuliaCall (>= 0.11.1)', 'magick', 'litedown', 'markdown (>= 1.3)', 'otel', 'otelsdk', 'png', 'ragg', 'reticulate (>= 1.4)', 'rgl (>= 0.95.1201)', 'rlang', 'rmarkdown', 'sass', 'showtext', 'styler (>= 1.2.0)', 'targets (>= 0.6.0)', 'testit', 'tibble', 'tikzDevice (>= 0.10)', 'tinytex (>= 0.56)', 'webshot', 'rstudioapi', 'svglite']
-vignettebuilder = 'litedown, knitr'
-roxygennote = '7.3.3'
+imports = ['evaluate (>= 0.15)', 'highr (>= 0.11)', 'methods', 'tools', 'xfun (>= 0.44)', 'yaml (>= 2.1.19)']
+suggests = ['bslib', 'codetools', 'DBI (>= 0.4-1)', 'digest', 'formatR', 'gifski', 'gridSVG', 'htmlwidgets (>= 0.7)', 'jpeg', 'JuliaCall (>= 0.11.1)', 'magick', 'markdown (>= 1.3)', 'png', 'ragg', 'reticulate (>= 1.4)', 'rgl (>= 0.95.1201)', 'rlang', 'rmarkdown', 'sass', 'showtext', 'styler (>= 1.2.0)', 'targets (>= 0.6.0)', 'testit', 'tibble', 'tikzDevice (>= 0.10)', 'tinytex (>= 0.46)', 'webshot', 'rstudioapi', 'svglite']
+vignettebuilder = 'knitr'
+roxygennote = '7.3.1'
 encoding = 'UTF-8'
 needscompilation = 'no'
-author = 'Yihui Xie [aut, cre] (ORCID: <https://orcid.org/0000-0003-0645-5666>, URL: https://yihui.org), Abhraneel Sarma [ctb], Adam Vogt [ctb], Alastair Andrew [ctb], Alex Zvoleff [ctb], Amar Al-Zubaidi [ctb], Andre Simon [ctb] (the CSS files under inst/themes/ were derived from the Highlight package http://www.andre-simon.de), Aron Atkins [ctb], Aaron Wolen [ctb], Ashley Manton [ctb], Atsushi Yasumoto [ctb] (ORCID: <https://orcid.org/0000-0002-8335-495X>), Ben Baumer [ctb], Brian Diggs [ctb], Brian Zhang [ctb], Bulat Yapparov [ctb], Cassio Pereira [ctb], Christophe Dervieux [ctb], David Hall [ctb], David Hugh-Jones [ctb], David Robinson [ctb], Doug Hemken [ctb], Duncan Murdoch [ctb], Elio Campitelli [ctb], Ellis Hughes [ctb], Emily Riederer [ctb], Fabian Hirschmann [ctb], Fitch Simeon [ctb], Forest Fang [ctb], Frank E Harrell Jr [ctb] (the Sweavel package at inst/misc/Sweavel.sty), Garrick Aden-Buie [ctb], Gregoire Detrez [ctb], Hadley Wickham [ctb], Hao Zhu [ctb], Heewon Jeon [ctb], Henrik Bengtsson [ctb], Hiroaki Yutani [ctb], Ian Lyttle [ctb], Hodges Daniel [ctb], Jacob Bien [ctb], Jake Burkhead [ctb], James Manton [ctb], Jared Lander [ctb], Jason Punyon [ctb], Javier Luraschi [ctb], Jeff Arnold [ctb], Jenny Bryan [ctb], Jeremy Ashkenas [ctb, cph] (the CSS file at inst/misc/docco-classic.css), Jeremy Stephens [ctb], Jim Hester [ctb], Joe Cheng [ctb], Johannes Ranke [ctb], John Honaker [ctb], John Muschelli [ctb], Jonathan Keane [ctb], JJ Allaire [ctb], Johan Toloe [ctb], Jonathan Sidi [ctb], Joseph Larmarange [ctb], Julien Barnier [ctb], Kaiyin Zhong [ctb], Kamil Slowikowski [ctb], Karl Forner [ctb], Kevin K. Smith [ctb], Kirill Mueller [ctb], Kohske Takahashi [ctb], Lorenz Walthert [ctb], Lucas Gallindo [ctb], Marius Hofert [ctb], Martin Modrák [ctb], Michael Chirico [ctb], Michael Friendly [ctb], Michal Bojanowski [ctb], Michel Kuhlmann [ctb], Miller Patrick [ctb], Nacho Caballero [ctb], Nick Salkowski [ctb], Niels Richard Hansen [ctb], Noam Ross [ctb], Obada Mahdi [ctb], Pavel N. Krivitsky [ctb] (ORCID: <https://orcid.org/0000-0002-9101-3362>), Pedro Faria [ctb], Qiang Li [ctb], Ramnath Vaidyanathan [ctb], Richard Cotton [ctb], Robert Krzyzanowski [ctb], Rodrigo Copetti [ctb], Romain Francois [ctb], Ruaridh Williamson [ctb], Sagiru Mati [ctb] (ORCID: <https://orcid.org/0000-0003-1413-3974>), Scott Kostyshak [ctb], Sebastian Meyer [ctb], Sietse Brouwer [ctb], Simon de Bernard [ctb], Sylvain Rousseau [ctb], Taiyun Wei [ctb], Thibaut Assus [ctb], Thibaut Lamadon [ctb], Thomas Leeper [ctb], Tim Mastny [ctb], Tom Torsney-Weir [ctb], Trevor Davis [ctb], Viktoras Veitas [ctb], Weicheng Zhu [ctb], Wush Wu [ctb], Zachary Foster [ctb], Zhian N. Kamvar [ctb] (ORCID: <https://orcid.org/0000-0003-1458-7108>), Posit Software, PBC [cph, fnd]'
+author = 'Yihui Xie [aut, cre] (<https://orcid.org/0000-0003-0645-5666>), Abhraneel Sarma [ctb], Adam Vogt [ctb], Alastair Andrew [ctb], Alex Zvoleff [ctb], Amar Al-Zubaidi [ctb], Andre Simon [ctb] (the CSS files under inst/themes/ were derived from the Highlight package http://www.andre-simon.de), Aron Atkins [ctb], Aaron Wolen [ctb], Ashley Manton [ctb], Atsushi Yasumoto [ctb] (<https://orcid.org/0000-0002-8335-495X>), Ben Baumer [ctb], Brian Diggs [ctb], Brian Zhang [ctb], Bulat Yapparov [ctb], Cassio Pereira [ctb], Christophe Dervieux [ctb], David Hall [ctb], David Hugh-Jones [ctb], David Robinson [ctb], Doug Hemken [ctb], Duncan Murdoch [ctb], Elio Campitelli [ctb], Ellis Hughes [ctb], Emily Riederer [ctb], Fabian Hirschmann [ctb], Fitch Simeon [ctb], Forest Fang [ctb], Frank E Harrell Jr [ctb] (the Sweavel package at inst/misc/Sweavel.sty), Garrick Aden-Buie [ctb], Gregoire Detrez [ctb], Hadley Wickham [ctb], Hao Zhu [ctb], Heewon Jeon [ctb], Henrik Bengtsson [ctb], Hiroaki Yutani [ctb], Ian Lyttle [ctb], Hodges Daniel [ctb], Jacob Bien [ctb], Jake Burkhead [ctb], James Manton [ctb], Jared Lander [ctb], Jason Punyon [ctb], Javier Luraschi [ctb], Jeff Arnold [ctb], Jenny Bryan [ctb], Jeremy Ashkenas [ctb, cph] (the CSS file at inst/misc/docco-classic.css), Jeremy Stephens [ctb], Jim Hester [ctb], Joe Cheng [ctb], Johannes Ranke [ctb], John Honaker [ctb], John Muschelli [ctb], Jonathan Keane [ctb], JJ Allaire [ctb], Johan Toloe [ctb], Jonathan Sidi [ctb], Joseph Larmarange [ctb], Julien Barnier [ctb], Kaiyin Zhong [ctb], Kamil Slowikowski [ctb], Karl Forner [ctb], Kevin K. Smith [ctb], Kirill Mueller [ctb], Kohske Takahashi [ctb], Lorenz Walthert [ctb], Lucas Gallindo [ctb], Marius Hofert [ctb], Martin Modrák [ctb], Michael Chirico [ctb], Michael Friendly [ctb], Michal Bojanowski [ctb], Michel Kuhlmann [ctb], Miller Patrick [ctb], Nacho Caballero [ctb], Nick Salkowski [ctb], Niels Richard Hansen [ctb], Noam Ross [ctb], Obada Mahdi [ctb], Pavel N. Krivitsky [ctb] (<https://orcid.org/0000-0002-9101-3362>), Pedro Faria [ctb], Qiang Li [ctb], Ramnath Vaidyanathan [ctb], Richard Cotton [ctb], Robert Krzyzanowski [ctb], Rodrigo Copetti [ctb], Romain Francois [ctb], Ruaridh Williamson [ctb], Sagiru Mati [ctb] (<https://orcid.org/0000-0003-1413-3974>), Scott Kostyshak [ctb], Sebastian Meyer [ctb], Sietse Brouwer [ctb], Simon de Bernard [ctb], Sylvain Rousseau [ctb], Taiyun Wei [ctb], Thibaut Assus [ctb], Thibaut Lamadon [ctb], Thomas Leeper [ctb], Tim Mastny [ctb], Tom Torsney-Weir [ctb], Trevor Davis [ctb], Viktoras Veitas [ctb], Weicheng Zhu [ctb], Wush Wu [ctb], Zachary Foster [ctb], Zhian N. Kamvar [ctb] (<https://orcid.org/0000-0003-1458-7108>), Posit Software, PBC [cph, fnd]'
 systemrequirements = 'Package vignettes based on R Markdown v2 or reStructuredText require Pandoc (http://pandoc.org). The function rst2pdf() requires rst2pdf (https://github.com/rst2pdf/rst2pdf).'
 
 [renv.packages.lattice]
@@ -559,7 +572,7 @@ author = 'Deepayan Sarkar [aut, cre] (<https://orcid.org/0000-0003-4107-1553>), 
 
 [renv.packages.lifecycle]
 package = 'lifecycle'
-version = '1.0.5'
+version = '1.0.4'
 source = 'Repository'
 repository = 'CRAN'
 depends = ['R (>= 3.6)']
@@ -571,13 +584,13 @@ description = 'Manage the life cycle of your exported functions with shared conv
 url = 'https://lifecycle.r-lib.org/, https://github.com/r-lib/lifecycle'
 bugreports = 'https://github.com/r-lib/lifecycle/issues'
 license = 'MIT + file LICENSE'
-imports = ['cli (>= 3.4.0)', 'rlang (>= 1.1.0)']
-suggests = ['covr', 'knitr', 'lintr (>= 3.1.0)', 'rmarkdown', 'testthat (>= 3.0.1)', 'tibble', 'tidyverse', 'tools', 'vctrs', 'withr', 'xml2']
+imports = ['cli (>= 3.4.0)', 'glue', 'rlang (>= 1.1.0)']
+suggests = ['covr', 'crayon', 'knitr', 'lintr', 'rmarkdown', 'testthat (>= 3.0.1)', 'tibble', 'tidyverse', 'tools', 'vctrs', 'withr']
 vignettebuilder = 'knitr'
-roxygennote = '7.3.3'
+roxygennote = '7.2.1'
 encoding = 'UTF-8'
 needscompilation = 'no'
-author = 'Lionel Henry [aut, cre], Hadley Wickham [aut] (ORCID: <https://orcid.org/0000-0003-4757-117X>), Posit Software, PBC [cph, fnd]'
+author = 'Lionel Henry [aut, cre], Hadley Wickham [aut] (<https://orcid.org/0000-0003-4757-117X>), Posit Software, PBC [cph, fnd]'
 'config/testthat/edition' = '3'
 'config/needs/website' = 'tidyverse/tidytemplate, usethis'
 
@@ -638,23 +651,23 @@ author = 'Simon Wood <simon.wood@r-project.org>'
 
 [renv.packages.mime]
 package = 'mime'
-version = '0.13'
+version = '0.12'
 source = 'Repository'
 repository = 'CRAN'
 hash = ''
 type = 'Package'
 title = 'Map Filenames to MIME Types'
-'authors@r' = 'c( person("Yihui", "Xie", role = c("aut", "cre"), email = "xie@yihui.name", comment = c(ORCID = "0000-0003-0645-5666", URL = "https://yihui.org")), person("Jeffrey", "Horner", role = "ctb"), person("Beilei", "Bian", role = "ctb") )'
+'authors@r' = 'c( person("Yihui", "Xie", role = c("aut", "cre"), email = "xie@yihui.name", comment = c(ORCID = "0000-0003-0645-5666")), person("Jeffrey", "Horner", role = "ctb"), person("Beilei", "Bian", role = "ctb") )'
 maintainer = 'Yihui Xie <xie@yihui.name>'
 description = 'Guesses the MIME type from a filename extension using the data derived from /etc/mime.types in UNIX-type systems.'
 url = 'https://github.com/yihui/mime'
 bugreports = 'https://github.com/yihui/mime/issues'
 license = 'GPL'
 imports = ['tools']
-roxygennote = '7.3.2'
+roxygennote = '7.1.1'
 encoding = 'UTF-8'
 needscompilation = 'yes'
-author = 'Yihui Xie [aut, cre] (<https://orcid.org/0000-0003-0645-5666>, https://yihui.org), Jeffrey Horner [ctb], Beilei Bian [ctb]'
+author = 'Yihui Xie [aut, cre] (<https://orcid.org/0000-0003-0645-5666>), Jeffrey Horner [ctb], Beilei Bian [ctb]'
 
 [renv.packages.nlme]
 package = 'nlme'
@@ -695,26 +708,25 @@ author = 'Brian Ripley [aut, cre, cph], William Venables [cph]'
 
 [renv.packages.rappdirs]
 package = 'rappdirs'
-version = '0.3.4'
+version = '0.3.3'
 source = 'Repository'
 repository = 'CRAN'
-depends = ['R (>= 4.1)']
+depends = ['R (>= 3.2)']
 hash = ''
 type = 'Package'
 title = 'Application Directories: Determine Where to Save Data, Caches, and Logs'
-'authors@r' = 'c( person("Hadley", "Wickham", , "hadley@posit.co", role = c("trl", "cre", "cph")), person("Sridhar", "Ratnakumar", role = "aut"), person("Trent", "Mick", role = "aut"), person("ActiveState", role = "cph", comment = "R/appdir.r, R/cache.r, R/data.r, R/log.r translated from appdirs"), person("Eddy", "Petrisor", role = "ctb"), person("Trevor", "Davis", role = c("trl", "aut"), comment = c(ORCID = "0000-0001-6341-4639")), person("Gabor", "Csardi", role = "ctb"), person("Gregory", "Jefferis", role = "ctb"), person("Posit Software, PBC", role = c("cph", "fnd"), comment = c(ROR = "03wc8by49")) )'
-maintainer = 'Hadley Wickham <hadley@posit.co>'
+'authors@r' = 'c(person(given = "Hadley", family = "Wickham", role = c("trl", "cre", "cph"), email = "hadley@rstudio.com"), person(given = "RStudio", role = "cph"), person(given = "Sridhar", family = "Ratnakumar", role = "aut"), person(given = "Trent", family = "Mick", role = "aut"), person(given = "ActiveState", role = "cph", comment = "R/appdir.r, R/cache.r, R/data.r, R/log.r translated from appdirs"), person(given = "Eddy", family = "Petrisor", role = "ctb"), person(given = "Trevor", family = "Davis", role = c("trl", "aut")), person(given = "Gabor", family = "Csardi", role = "ctb"), person(given = "Gregory", family = "Jefferis", role = "ctb"))'
+maintainer = 'Hadley Wickham <hadley@rstudio.com>'
 description = "An easy way to determine which directories on the users computer you should use to save data, caches and logs. A port of Python's 'Appdirs' (<https://github.com/ActiveState/appdirs>) to R."
 url = 'https://rappdirs.r-lib.org, https://github.com/r-lib/rappdirs'
 bugreports = 'https://github.com/r-lib/rappdirs/issues'
 license = 'MIT + file LICENSE'
-suggests = ['covr', 'roxygen2', 'testthat (>= 3.2.0)', 'withr']
-roxygennote = '7.3.3'
+suggests = ['roxygen2', 'testthat (>= 3.0.0)', 'covr', 'withr']
+roxygennote = '7.1.1'
 encoding = 'UTF-8'
 needscompilation = 'yes'
-author = 'Hadley Wickham [trl, cre, cph], Sridhar Ratnakumar [aut], Trent Mick [aut], ActiveState [cph] (R/appdir.r, R/cache.r, R/data.r, R/log.r translated from appdirs), Eddy Petrisor [ctb], Trevor Davis [trl, aut] (ORCID: <https://orcid.org/0000-0001-6341-4639>), Gabor Csardi [ctb], Gregory Jefferis [ctb], Posit Software, PBC [cph, fnd] (ROR: <https://ror.org/03wc8by49>)'
+author = 'Hadley Wickham [trl, cre, cph], RStudio [cph], Sridhar Ratnakumar [aut], Trent Mick [aut], ActiveState [cph] (R/appdir.r, R/cache.r, R/data.r, R/log.r translated from appdirs), Eddy Petrisor [ctb], Trevor Davis [trl, aut], Gabor Csardi [ctb], Gregory Jefferis [ctb]'
 'config/testthat/edition' = '3'
-'config/needs/website' = 'tidyverse/tidytemplate'
 
 [renv.packages.renv]
 package = 'renv'
@@ -742,21 +754,21 @@ author = 'Kevin Ushey [aut, cre] (ORCID: <https://orcid.org/0000-0003-2880-7407>
 
 [renv.packages.rlang]
 package = 'rlang'
-version = '1.1.7'
+version = '1.1.4'
 source = 'Repository'
 repository = 'CRAN'
-depends = ['R (>= 4.0.0)']
+depends = ['R (>= 3.5.0)']
 hash = ''
 title = "Functions for Base Types and Core R and 'Tidyverse' Features"
-'authors@r' = "c( person(\"Lionel\", \"Henry\", ,\"lionel@posit.co\", c(\"aut\", \"cre\")), person(\"Hadley\", \"Wickham\", ,\"hadley@posit.co\", \"aut\"), person(given = \"mikefc\", email = \"mikefc@coolbutuseless.com\", role = \"cph\", comment = \"Hash implementation based on Mike's xxhashlite\"), person(given = \"Yann\", family = \"Collet\", role = \"cph\", comment = \"Author of the embedded xxHash library\"), person(given = \"Posit, PBC\", role = c(\"cph\", \"fnd\")) )"
+'authors@r' = "c( person(\"Lionel\", \"Henry\", ,\"lionel@posit.co\", c(\"aut\", \"cre\")), person(\"Hadley\", \"Wickham\", ,\"hadley@posit.co\", \"aut\"), person(given = \"mikefc\", email = \"mikefc@coolbutuseless.com\",  role = \"cph\",  comment = \"Hash implementation based on Mike's xxhashlite\"), person(given = \"Yann\", family = \"Collet\", role = \"cph\",  comment = \"Author of the embedded xxHash library\"), person(given = \"Posit, PBC\", role = c(\"cph\", \"fnd\")) )"
 maintainer = 'Lionel Henry <lionel@posit.co>'
 description = "A toolbox for working with base types, core R features like the condition system, and core 'Tidyverse' features like tidy evaluation."
 url = 'https://rlang.r-lib.org, https://github.com/r-lib/rlang'
 bugreports = 'https://github.com/r-lib/rlang/issues'
 license = 'MIT + file LICENSE'
 imports = ['utils']
-suggests = ['cli (>= 3.1.0)', 'covr', 'crayon', 'desc', 'fs', 'glue', 'knitr', 'magrittr', 'methods', 'pillar', 'pkgload', 'rmarkdown', 'stats', 'testthat (>= 3.2.0)', 'tibble', 'usethis', 'vctrs (>= 0.2.3)', 'withr']
-roxygennote = '7.3.3'
+suggests = ['cli (>= 3.1.0)', 'covr', 'crayon', 'fs', 'glue', 'knitr', 'magrittr', 'methods', 'pillar', 'rmarkdown', 'stats', 'testthat (>= 3.0.0)', 'tibble', 'usethis', 'vctrs (>= 0.2.3)', 'withr']
+roxygennote = '7.3.1'
 encoding = 'UTF-8'
 needscompilation = 'yes'
 author = "Lionel Henry [aut, cre], Hadley Wickham [aut], mikefc [cph] (Hash implementation based on Mike's xxhashlite), Yann Collet [cph] (Author of the embedded xxHash library), Posit, PBC [cph, fnd]"
@@ -765,7 +777,7 @@ author = "Lionel Henry [aut, cre], Hadley Wickham [aut], mikefc [cph] (Hash impl
 
 [renv.packages.rmarkdown]
 package = 'rmarkdown'
-version = '2.30'
+version = '2.27'
 source = 'Repository'
 repository = 'CRAN'
 depends = ['R (>= 3.0)']
@@ -781,11 +793,10 @@ license = 'GPL-3'
 imports = ['bslib (>= 0.2.5.1)', 'evaluate (>= 0.13)', 'fontawesome (>= 0.5.0)', 'htmltools (>= 0.5.1)', 'jquerylib', 'jsonlite', 'knitr (>= 1.43)', 'methods', 'tinytex (>= 0.31)', 'tools', 'utils', 'xfun (>= 0.36)', 'yaml (>= 2.1.19)']
 suggests = ['digest', 'dygraphs', 'fs', 'rsconnect', 'downlit (>= 0.4.0)', 'katex (>= 1.4.0)', 'sass (>= 0.4.0)', 'shiny (>= 1.6.0)', 'testthat (>= 3.0.3)', 'tibble', 'vctrs', 'cleanrmd', 'withr (>= 2.4.2)', 'xml2']
 vignettebuilder = 'knitr'
-roxygennote = '7.3.2'
+roxygennote = '7.3.1'
 encoding = 'UTF-8'
 needscompilation = 'no'
-author = 'JJ Allaire [aut], Yihui Xie [aut, cre] (ORCID: <https://orcid.org/0000-0003-0645-5666>), Christophe Dervieux [aut] (ORCID: <https://orcid.org/0000-0003-4474-2498>), Jonathan McPherson [aut], Javier Luraschi [aut], Kevin Ushey [aut], Aron Atkins [aut], Hadley Wickham [aut], Joe Cheng [aut], Winston Chang [aut], Richard Iannone [aut] (ORCID: <https://orcid.org/0000-0003-3925-190X>), Andrew Dunning [ctb] (ORCID: <https://orcid.org/0000-0003-0464-5036>), Atsushi Yasumoto [ctb, cph] (ORCID: <https://orcid.org/0000-0002-8335-495X>, cph: Number sections Lua filter), Barret Schloerke [ctb], Carson Sievert [ctb] (ORCID: <https://orcid.org/0000-0002-4958-2844>), Devon Ryan [ctb] (ORCID: <https://orcid.org/0000-0002-8549-0971>), Frederik Aust [ctb] (ORCID: <https://orcid.org/0000-0003-4900-788X>), Jeff Allen [ctb], JooYoung Seo [ctb] (ORCID: <https://orcid.org/0000-0002-4064-6012>), Malcolm Barrett [ctb], Rob Hyndman [ctb], Romain Lesur [ctb], Roy Storey [ctb], Ruben Arslan [ctb], Sergio Oller [ctb], Posit Software, PBC [cph, fnd], jQuery UI contributors [ctb, cph] (jQuery UI library; authors listed in inst/rmd/h/jqueryui/AUTHORS.txt), Mark Otto [ctb] (Bootstrap library), Jacob Thornton [ctb] (Bootstrap library), Bootstrap contributors [ctb] (Bootstrap library), Twitter, Inc [cph] (Bootstrap library), Alexander Farkas [ctb, cph] (html5shiv library), Scott Jehl [ctb, cph] (Respond.js library), Ivan Sagalaev [ctb, cph] (highlight.js library), Greg Franko [ctb, cph] (tocify library), John MacFarlane [ctb, cph] (Pandoc templates), Google, Inc. [ctb, cph] (ioslides library), Dave Raggett [ctb] (slidy library), W3C [cph] (slidy library), Dave Gandy [ctb, cph] (Font-Awesome), Ben Sperry [ctb] (Ionicons), Drifty [cph] (Ionicons), Aidan Lister [ctb, cph] (jQuery StickyTabs), Benct Philip Jonsson [ctb, cph] (pagebreak Lua filter), Albert Krewinkel [ctb, cph] (pagebreak Lua filter)'
-'config/testthat/edition' = '3'
+author = 'JJ Allaire [aut], Yihui Xie [aut, cre] (<https://orcid.org/0000-0003-0645-5666>), Christophe Dervieux [aut] (<https://orcid.org/0000-0003-4474-2498>), Jonathan McPherson [aut], Javier Luraschi [aut], Kevin Ushey [aut], Aron Atkins [aut], Hadley Wickham [aut], Joe Cheng [aut], Winston Chang [aut], Richard Iannone [aut] (<https://orcid.org/0000-0003-3925-190X>), Andrew Dunning [ctb] (<https://orcid.org/0000-0003-0464-5036>), Atsushi Yasumoto [ctb, cph] (<https://orcid.org/0000-0002-8335-495X>, Number sections Lua filter), Barret Schloerke [ctb], Carson Sievert [ctb] (<https://orcid.org/0000-0002-4958-2844>), Devon Ryan [ctb] (<https://orcid.org/0000-0002-8549-0971>), Frederik Aust [ctb] (<https://orcid.org/0000-0003-4900-788X>), Jeff Allen [ctb], JooYoung Seo [ctb] (<https://orcid.org/0000-0002-4064-6012>), Malcolm Barrett [ctb], Rob Hyndman [ctb], Romain Lesur [ctb], Roy Storey [ctb], Ruben Arslan [ctb], Sergio Oller [ctb], Posit Software, PBC [cph, fnd], jQuery UI contributors [ctb, cph] (jQuery UI library; authors listed in inst/rmd/h/jqueryui/AUTHORS.txt), Mark Otto [ctb] (Bootstrap library), Jacob Thornton [ctb] (Bootstrap library), Bootstrap contributors [ctb] (Bootstrap library), Twitter, Inc [cph] (Bootstrap library), Alexander Farkas [ctb, cph] (html5shiv library), Scott Jehl [ctb, cph] (Respond.js library), Ivan Sagalaev [ctb, cph] (highlight.js library), Greg Franko [ctb, cph] (tocify library), John MacFarlane [ctb, cph] (Pandoc templates), Google, Inc. [ctb, cph] (ioslides library), Dave Raggett [ctb] (slidy library), W3C [cph] (slidy library), Dave Gandy [ctb, cph] (Font-Awesome), Ben Sperry [ctb] (Ionicons), Drifty [cph] (Ionicons), Aidan Lister [ctb, cph] (jQuery StickyTabs), Benct Philip Jonsson [ctb, cph] (pagebreak Lua filter), Albert Krewinkel [ctb, cph] (pagebreak Lua filter)'
 'config/needs/website' = 'rstudio/quillt, pkgdown'
 systemrequirements = 'pandoc (>= 1.14) - http://pandoc.org'
 
@@ -809,7 +820,7 @@ author = 'Terry Therneau [aut], Beth Atkinson [aut, cre], Brian Ripley [trl] (pr
 
 [renv.packages.sass]
 package = 'sass'
-version = '0.4.10'
+version = '0.4.9'
 source = 'Repository'
 repository = 'CRAN'
 hash = ''
@@ -824,7 +835,7 @@ license = 'MIT + file LICENSE'
 imports = ['fs (>= 1.2.4)', 'rlang (>= 0.4.10)', 'htmltools (>= 0.5.1)', 'R6', 'rappdirs']
 suggests = ['testthat', 'knitr', 'rmarkdown', 'withr', 'shiny', 'curl']
 vignettebuilder = 'knitr'
-roxygennote = '7.3.2'
+roxygennote = '7.3.1'
 encoding = 'UTF-8'
 needscompilation = 'yes'
 author = 'Joe Cheng [aut], Timothy Mastny [aut], Richard Iannone [aut] (<https://orcid.org/0000-0003-3925-190X>), Barret Schloerke [aut] (<https://orcid.org/0000-0001-9986-114X>), Carson Sievert [aut, cre] (<https://orcid.org/0000-0002-4958-2844>), Christophe Dervieux [ctb] (<https://orcid.org/0000-0003-4474-2498>), RStudio [cph, fnd], Sass Open Source Foundation [ctb, cph] (LibSass library), Greter Marcel [ctb, cph] (LibSass library), Mifsud Michael [ctb, cph] (LibSass library), Hampton Catlin [ctb, cph] (LibSass library), Natalie Weizenbaum [ctb, cph] (LibSass library), Chris Eppstein [ctb, cph] (LibSass library), Adams Joseph [ctb, cph] (json.cpp), Trifunovic Nemanja [ctb, cph] (utf8.h)'
@@ -867,7 +878,7 @@ author = 'Terry M Therneau [aut, cre], Thomas Lumley [ctb, trl] (original S->R p
 
 [renv.packages.tinytex]
 package = 'tinytex'
-version = '0.58'
+version = '0.51'
 source = 'Repository'
 repository = 'CRAN'
 hash = ''
@@ -879,55 +890,48 @@ description = "Helper functions to install and maintain the 'LaTeX' distribution
 url = 'https://github.com/rstudio/tinytex'
 bugreports = 'https://github.com/rstudio/tinytex/issues'
 license = 'MIT + file LICENSE'
-imports = ['xfun (>= 0.48)']
+imports = ['xfun (>= 0.29)']
 suggests = ['testit', 'rstudioapi']
-roxygennote = '7.3.3'
+roxygennote = '7.3.1'
 encoding = 'UTF-8'
 needscompilation = 'no'
-author = 'Yihui Xie [aut, cre, cph] (ORCID: <https://orcid.org/0000-0003-0645-5666>), Posit Software, PBC [cph, fnd], Christophe Dervieux [ctb] (ORCID: <https://orcid.org/0000-0003-4474-2498>), Devon Ryan [ctb] (ORCID: <https://orcid.org/0000-0002-8549-0971>), Ethan Heinzen [ctb], Fernando Cagua [ctb]'
+author = 'Yihui Xie [aut, cre, cph] (<https://orcid.org/0000-0003-0645-5666>), Posit Software, PBC [cph, fnd], Christophe Dervieux [ctb] (<https://orcid.org/0000-0003-4474-2498>), Devon Ryan [ctb] (<https://orcid.org/0000-0002-8549-0971>), Ethan Heinzen [ctb], Fernando Cagua [ctb]'
 
 [renv.packages.xfun]
 package = 'xfun'
-version = '0.56'
+version = '0.44'
 source = 'Repository'
 repository = 'CRAN'
-depends = ['R (>= 3.2.0)']
 hash = ''
 type = 'Package'
 title = "Supporting Functions for Packages Maintained by 'Yihui Xie'"
-'authors@r' = 'c( person("Yihui", "Xie", role = c("aut", "cre", "cph"), email = "xie@yihui.name", comment = c(ORCID = "0000-0003-0645-5666", URL = "https://yihui.org")), person("Wush", "Wu", role = "ctb"), person("Daijiang", "Li", role = "ctb"), person("Xianying", "Tan", role = "ctb"), person("Salim", "Brüggemann", role = "ctb", email = "salim-b@pm.me", comment = c(ORCID = "0000-0002-5329-5987")), person("Christophe", "Dervieux", role = "ctb"), person() )'
+'authors@r' = 'c( person("Yihui", "Xie", role = c("aut", "cre", "cph"), email = "xie@yihui.name", comment = c(ORCID = "0000-0003-0645-5666")), person("Wush", "Wu", role = "ctb"), person("Daijiang", "Li", role = "ctb"), person("Xianying", "Tan", role = "ctb"), person("Salim", "Brüggemann", role = "ctb", email = "salim-b@pm.me", comment = c(ORCID = "0000-0002-5329-5987")), person("Christophe", "Dervieux", role = "ctb"), person(given = "Posit Software, PBC", role = c("cph", "fnd")), person() )'
 maintainer = 'Yihui Xie <xie@yihui.name>'
 description = "Miscellaneous functions commonly used in other packages maintained by 'Yihui Xie'."
 url = 'https://github.com/yihui/xfun'
 bugreports = 'https://github.com/yihui/xfun/issues'
 license = 'MIT + file LICENSE'
 imports = ['grDevices', 'stats', 'tools']
-suggests = ['testit', 'parallel', 'codetools', 'methods', 'rstudioapi', 'tinytex (>= 0.30)', 'mime', 'litedown (>= 0.6)', 'commonmark', 'knitr (>= 1.50)', 'remotes', 'pak', 'curl', 'xml2', 'jsonlite', 'magick', 'yaml', 'data.table', 'qs2']
-vignettebuilder = 'litedown'
-roxygennote = '7.3.3'
+suggests = ['testit', 'parallel', 'codetools', 'methods', 'rstudioapi', 'tinytex (>= 0.30)', 'mime', 'markdown (>= 1.5)', 'knitr (>= 1.42)', 'htmltools', 'remotes', 'pak', 'rhub', 'renv', 'curl', 'xml2', 'jsonlite', 'magick', 'yaml', 'qs', 'rmarkdown']
+vignettebuilder = 'knitr'
+roxygennote = '7.3.1'
 encoding = 'UTF-8'
 needscompilation = 'yes'
-author = 'Yihui Xie [aut, cre, cph] (ORCID: <https://orcid.org/0000-0003-0645-5666>, URL: https://yihui.org), Wush Wu [ctb], Daijiang Li [ctb], Xianying Tan [ctb], Salim Brüggemann [ctb] (ORCID: <https://orcid.org/0000-0002-5329-5987>), Christophe Dervieux [ctb]'
+author = 'Yihui Xie [aut, cre, cph] (<https://orcid.org/0000-0003-0645-5666>), Wush Wu [ctb], Daijiang Li [ctb], Xianying Tan [ctb], Salim Brüggemann [ctb] (<https://orcid.org/0000-0002-5329-5987>), Christophe Dervieux [ctb], Posit Software, PBC [cph, fnd]'
 
 [renv.packages.yaml]
 package = 'yaml'
-version = '2.3.12'
+version = '2.3.8'
 source = 'Repository'
 repository = 'CRAN'
 hash = ''
 type = 'Package'
 title = 'Methods to Convert R Data to YAML and Back'
-'authors@r' = "c( person(\"Hadley\", \"Wickham\", , \"hadley@posit.co\", role = \"cre\", comment = c(ORCID = \"0000-0003-4757-117X\")), person(\"Shawn\", \"Garbett\", , \"shawn.garbett@vumc.org\", role = \"ctb\", comment = c(ORCID = \"0000-0003-4079-5621\")), person(\"Jeremy\", \"Stephens\", role = c(\"aut\", \"ctb\")), person(\"Kirill\", \"Simonov\", role = \"aut\"), person(\"Yihui\", \"Xie\", role = \"ctb\", comment = c(ORCID = \"0000-0003-0645-5666\")), person(\"Zhuoer\", \"Dong\", role = \"ctb\"), person(\"Jeffrey\", \"Horner\", role = \"ctb\"), person(\"reikoch\", role = \"ctb\"), person(\"Will\", \"Beasley\", role = \"ctb\", comment = c(ORCID = \"0000-0002-5613-5006\")), person(\"Brendan\", \"O'Connor\", role = \"ctb\"), person(\"Michael\", \"Quinn\", role = \"ctb\"), person(\"Charlie\", \"Gao\", role = \"ctb\"), person(c(\"Gregory\", \"R.\"), \"Warnes\", role = \"ctb\"), person(c(\"Zhian\", \"N.\"), \"Kamvar\", role = \"ctb\") )"
-maintainer = 'Hadley Wickham <hadley@posit.co>'
+maintainer = 'Shawn Garbett <shawn.garbett@vumc.org>'
 description = "Implements the 'libyaml' 'YAML' 1.1 parser and emitter (<https://pyyaml.org/wiki/LibYAML>) for R."
-url = 'https://yaml.r-lib.org, https://github.com/r-lib/yaml/'
-bugreports = 'https://github.com/r-lib/yaml/issues'
+url = 'https://github.com/vubiostat/r-yaml/'
+bugreports = 'https://github.com/vubiostat/r-yaml/issues'
 license = 'BSD_3_clause + file LICENSE'
-suggests = ['knitr', 'rmarkdown', 'testthat (>= 3.0.0)']
-vignettebuilder = 'knitr'
-roxygennote = '7.3.3'
-encoding = 'UTF-8'
+suggests = ['RUnit']
 needscompilation = 'yes'
-author = "Hadley Wickham [cre] (ORCID: <https://orcid.org/0000-0003-4757-117X>), Shawn Garbett [ctb] (ORCID: <https://orcid.org/0000-0003-4079-5621>), Jeremy Stephens [aut, ctb], Kirill Simonov [aut], Yihui Xie [ctb] (ORCID: <https://orcid.org/0000-0003-0645-5666>), Zhuoer Dong [ctb], Jeffrey Horner [ctb], reikoch [ctb], Will Beasley [ctb] (ORCID: <https://orcid.org/0000-0002-5613-5006>), Brendan O'Connor [ctb], Michael Quinn [ctb], Charlie Gao [ctb], Gregory R. Warnes [ctb], Zhian N. Kamvar [ctb]"
-'config/testthat/edition' = '3'
-'config/needs/website' = 'tidyverse/tidytemplate'
+author = "Shawn P Garbett [aut], Jeremy Stephens [aut, cre], Kirill Simonov [aut], Yihui Xie [ctb], Zhuoer Dong [ctb], Hadley Wickham [ctb], Jeffrey Horner [ctb], reikoch [ctb], Will Beasley [ctb], Brendan O'Connor [ctb], Gregory R. Warnes [ctb], Michael Quinn [ctb], Zhian N. Kamvar [ctb]"
